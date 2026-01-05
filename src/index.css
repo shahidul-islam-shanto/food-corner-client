@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 @theme {
   /* --animate-ripple: ripple 1s linear infinite; */
