@@ -21,45 +21,52 @@ import "swiper/css/thumbs";
 import "./SwiperSliderHero.css";
 
 // import required modules
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 const SwiperSliderHero = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
     <>
-      <Swiper
-        style={{
-          "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fff",
-        }}
-        spaceBetween={10}
-        navigation={true}
-        thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2"
-      >
-        <SwiperSlide>
-          <img className="w-full h-full" src={Hero1} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img className="w-full h-full" src={Hero2} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img className="w-full h-full" src={Hero3} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img className="w-full h-full" src={Hero4} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img className="w-full h-[808px]" src={Hero5} />
-        </SwiperSlide>
-      </Swiper>
+      <div className="mb-16">
+        <Swiper
+          style={{
+            "--swiper-navigation-color": "#fff",
+            "--swiper-pagination-color": "#fff",
+          }}
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+          }}
+          navigation={true}
+          thumbs={{ swiper: thumbsSwiper }}
+          modules={[Autoplay, FreeMode, Navigation, Thumbs]}
+          className="mySwiper2"
+        >
+          <SwiperSlide>
+            <img className="w-full h-full" src={Hero1} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img className="w-full h-full" src={Hero2} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img className="w-full h-full" src={Hero3} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img className="w-full h-full" src={Hero4} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img className="w-full h-full" src={Hero5} />
+          </SwiperSlide>
+        </Swiper>
+      </div>
       <div className="">
         <div className="container-2">
           <Swiper
             onSwiper={setThumbsSwiper}
-            spaceBetween={10}
+            spaceBetween={30}
             slidesPerView={4}
             freeMode={true}
             watchSlidesProgress={true}
