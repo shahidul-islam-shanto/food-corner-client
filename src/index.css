@@ -4,15 +4,24 @@
   /* --animate-ripple: ripple 1s linear infinite; */
 
   --color-transparent: transparent;
-  --color-primary1: #ff3811;
-  --color-secondary1: #444444;
+  --color-primary1: #444444;
+  --color-secondary1: #a1a1a1;
   --color-nu10: #ffffff;
-  --color-nu20: #000000;
-  --color-nu30: #737373;
-  --color-nu40: #a2a2a2;
-  --color-nu50: #d0d0d0;
-  --color-nu60: #e8e8e8;
-  --color-nu70: #f3f3f3;
+  --color-nu20: #f3f3f3;
+  --color-nu30: #d0d0d0;
+  --color-nu40: #737373;
+  --color-nu50: #e8e8e8;
+  --color-nu60: #151515;
+  --color-nu70: #007aff;
+  --color-nu80: #111827;
+  --color-nu90: #1f2937;
+  --color-nu100: #bb8506;
+  --color-nu101: #cd9003;
+  --color-nu102: #d99904;
+  --color-nu103: #d9d9d9;
+  --color-nu104: #eeff25;
+  --color-nu105: #151515b3;
+  --color-nu106: #15151580;
 
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
