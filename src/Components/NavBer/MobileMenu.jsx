@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 
 const MobileMenu = ({ open, setOpen }) => {
   const [jsOpen, setJsOpen] = useState(false);
@@ -22,31 +23,21 @@ const MobileMenu = ({ open, setOpen }) => {
           </div>
 
           <ul className="space-y-3 text-nu20 m-auto text-center w-full h-full py-40">
-            <li>HOME</li>
-            <li>
-              <div
-                className="flex items-center justify-center gap-2 cursor-pointer"
-                onClick={() => setJsOpen(!jsOpen)}
-              >
-                <span>JAVASCRIPT</span>
-                <IoIosArrowForward
-                  className={`transition-transform duration-300 ${
-                    jsOpen ? "rotate-90" : "rotate-0"
-                  }`}
-                />
-              </div>
-
-              {jsOpen && (
-                <ul className="ml-4 mt-2 space-y-2">
-                  <li>Dynamic Clock</li>
-                  <li>Form Validation</li>
-                  <li>Card Slider</li>
-                </ul>
-              )}
+            <li className="text-nu20 uppercase">
+              <NavLink to={"/"}>HOME</NavLink>
             </li>
-
-            <li>ABOUT US</li>
-            <li>CONTACT US</li>
+            <li className="text-nu20 uppercase">
+              <NavLink to={"/"}>Contact Us</NavLink>
+            </li>
+            <li className="text-nu20 uppercase">
+              <NavLink to={"/"}>Dashboard</NavLink>
+            </li>
+            <li className="text-nu20 uppercase">
+              <NavLink to={"/"}>Our Menu</NavLink>
+            </li>
+            <li className="text-nu20 uppercase">
+              <NavLink to={"/"}>Our Shop</NavLink>
+            </li>
           </ul>
         </div>
       </div>

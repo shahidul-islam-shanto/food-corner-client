@@ -1,16 +1,13 @@
-import { useContext, useRef, useState } from "react";
+import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoSearch } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
-
+import { FaCartShopping } from "react-icons/fa6";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const NavBer = () => {
   const [open, setOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
-  const inputRef = useRef(null);
- 
 
   const handleSearch = (e) => {
     if (e.key === "Enter") {
@@ -20,30 +17,24 @@ const NavBer = () => {
     }
   };
 
-  
-
   const NavBer = (
     <>
-      <li className="text-nu20">
+      <li className="text-nu20 uppercase">
         <NavLink to={"/"}>HOME</NavLink>
       </li>
-
-      <li className="relative group cursor-pointer">
-        <div className="flex items-center gap-1 text-nu20 group">
-          <span className="cursor-pointer">JAVASCRIPT</span>
-          <IoIosArrowForward className="transition-transform duration-300 text-[18px] group-hover:rotate-90" />
-        </div>
-        <div className="absolute left-0 top-full h-8 w-full"></div>
-        <ul className="absolute left-0 top-[calc(100%+1.8rem)] hidden group-hover:block rounded shadow w-52 bg-nu10">
-          <li className="px-4 py-2 text-nu20">Dynamic Clock</li>
-          <li className="px-4 py-2 text-nu20">Form Validation</li>
-          <li className="px-4 py-2 text-nu20">Card Slider</li>
-        </ul>
+      <li className="text-nu20 uppercase">
+        <NavLink to={"/"}>Contact Us</NavLink>
+      </li>
+      <li className="text-nu20 uppercase">
+        <NavLink to={"/"}>Dashboard</NavLink>
+      </li>
+      <li className="text-nu20 uppercase">
+        <NavLink to={"/"}>Our Menu</NavLink>
+      </li>
+      <li className="text-nu20 uppercase">
+        <NavLink to={"/"}>Our Shop</NavLink>
       </li>
 
-      <li className="text-nu20">
-        <NavLink to={"/about"}>ABOUT US</NavLink>
-      </li>
       {/* <li className="text-nu20">
         {user?.email ? <NavLink to={"/myCourse"}>My Course</NavLink> : ""}
       </li> */}
@@ -58,36 +49,26 @@ const NavBer = () => {
             <IoMenu className="text-[24px]" />
           </button>
           <div className="text-nu20 text-2xl font-semibold">
-            <h3>GroupStudy</h3>
+            <Link to={""} className="flex items-center font-cinzel">
+              <span className="lg:text-[32px] md:text-[28px] text-[24px] font-bold font-cinzel">
+                Food
+              </span>
+              <span className="lg:text-[32px] md:text-[28px] text-[24px] font-bold text-nu102 font-cinzel">
+                Corner
+              </span>
+            </Link>
           </div>
           <ul className="hidden lg:flex items-center gap-6 text-nu20  font-medium">
             {NavBer}
           </ul>
 
-          <div className="flex justify-between items-center gap-4">
-            <div className="relative">
-              <button
-                onClick={() => {
-                  setShowSearch(true);
-                  setTimeout(() => inputRef.current?.focus(), 100);
-                }}
-                className="text-nu20"
-              >
-                <IoSearch className="text-[24px]" />
-              </button>
-
-              {showSearch && (
-                <div className="absolute right-0 mt-4 bg-nu60 p-3 rounded shadow">
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    placeholder="Search..."
-                    className="w-100 px-3 py-2 rounded outline-none"
-                    onKeyDown={handleSearch}
-                    onBlur={() => setShowSearch(false)}
-                  />
-                </div>
-              )}
+          <div className="flex justify-between items-center gap-6">
+            <div className="">
+              <Link to={""}>
+                <span>
+                  <FaCartShopping className="text-nu10 font-bold text-[32px]" />
+                </span>
+              </Link>
             </div>
             {/* <div className="">
               {user?.email ? (
@@ -108,10 +89,13 @@ const NavBer = () => {
               )}
             </div> */}
             <div className="">
-              <Link to={"/register"}>
-                <button className="px-4 py-2 bg-primary1 rounded-lg">
-                  Register
+              <Link to={"/register"} className="flex items-center gap-2">
+                <button className=" text-nu10  rounded-lg">
+                  Sing Out
                 </button>
+                <span>
+                  <FaRegUserCircle className="text-nu10 text-[32px] font-bold" />
+                </span>
               </Link>
             </div>
           </div>

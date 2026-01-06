@@ -58,11 +58,11 @@ const Footer = () => {
       <div className="bg-nu60 py-6">
         <div className="container-2">
           <div className="">
-            <p className="text-nu10 flex justify-center items-center gap-2">
+            <p className="text-nu10 flex justify-center items-center gap-1">
               Copyright © {new Date().getFullYear()} - All right reserved by
               <Link
                 to={""}
-                className="hover:text-nu102 font-semibold hover:underline "
+                className="hover:text-nu102 font-semibold hover:underline duration-300 "
               >
                 Food Corner
               </Link>

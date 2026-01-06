@@ -1,8 +1,11 @@
 @import "tailwindcss";
+@import "./assets/fonts/fontssheet.css";
 @plugin "daisyui";
 
 @theme {
   /* --animate-ripple: ripple 1s linear infinite; */
+  --font-inter: "Inter", sans-serif;
+  --font-cinzel: "Cinzel", serif;
 
   --color-transparent: transparent;
   --color-primary1: #444444;
@@ -47,7 +50,7 @@
 
 @layer components {
   .container-2 {
-    @apply mx-auto max-sm:px-3 sm:max-w-[540px] sm:px-0 md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1296px];
+    @apply mx-auto max-sm:px-3 sm:max-w-135 sm:px-0 md:max-w-180 lg:max-w-240 xl:max-w-285 2xl:max-w-324;
   }
 
   .display-1 {
@@ -157,17 +160,17 @@
   }
 
   * {
-    font-family: "Lexend", sans-serif;
+    font-family: "Inter", sans-serif;
     box-sizing: border-box;
   }
 
-  .fontMont {
-    font-family: "Montserrat", serif;
+  .fontCinzel {
+    font-family: "Cinzel", serif;
   }
 
-  .fontLato {
+  /* .fontLato {
     font-family: "Lato", serif;
-  }
+  } */
 }
 
 @layer utilities {
