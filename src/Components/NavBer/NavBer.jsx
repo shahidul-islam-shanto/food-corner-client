@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaRegUserCircle } from "react-icons/fa";
+import Logo from "../../assets/images/hero-img/logo.png";
 
 const NavBer = () => {
   const [open, setOpen] = useState(false);
@@ -49,13 +50,19 @@ const NavBer = () => {
             <IoMenu className="text-[24px]" />
           </button>
           <div className="text-nu20 text-2xl font-semibold">
-            <Link to={""} className="flex items-center font-cinzel">
-              <span className="lg:text-[32px] md:text-[28px] text-[24px] font-bold font-cinzel">
-                Food
-              </span>
-              <span className="lg:text-[32px] md:text-[28px] text-[24px] font-bold text-nu102 font-cinzel">
-                Corner
-              </span>
+            <Link to={""}>
+              <div className="flex justify-center items-center gap-2">
+                <img className="w-10 h-10 border-2 border-nu102 rounded-full" src={Logo} alt="" />
+
+                <div className="flex items-center">
+                  <span className="lg:text-[32px] md:text-[28px] text-[24px] font-bold font-cinzel">
+                    Food
+                  </span>
+                  <span className="lg:text-[32px] md:text-[28px] text-[24px] font-bold text-nu102 font-cinzel">
+                    Corner
+                  </span>
+                </div>
+              </div>
             </Link>
           </div>
           <ul className="hidden lg:flex items-center gap-6 text-nu20  font-medium">
@@ -90,9 +97,7 @@ const NavBer = () => {
             </div> */}
             <div className="">
               <Link to={"/register"} className="flex items-center gap-2">
-                <button className=" text-nu10  rounded-lg">
-                  Sing Out
-                </button>
+                <button className=" text-nu10  rounded-lg">Sing Out</button>
                 <span>
                   <FaRegUserCircle className="text-nu10 text-[32px] font-bold" />
                 </span>
