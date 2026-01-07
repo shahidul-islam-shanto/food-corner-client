@@ -1,5 +1,3 @@
-
-
 .swiper {
   width: 100%;
   height: 100%;
@@ -54,12 +52,21 @@
 .mySwiper .swiper-slide {
   width: 25%;
   height: 100%;
-  opacity: 0.4;
+  /* opacity: 0.4; */
 }
-
 .mySwiper .swiper-slide-thumb-active {
   opacity: 1;
 }
+
+/* .thumb-slider .mySwiper .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.thumb-slider .mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+} */
 
 .swiper-slide img {
   display: block;

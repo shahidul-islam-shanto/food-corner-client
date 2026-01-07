@@ -1,5 +1,8 @@
 import React from "react";
-import Slider from "../../assets/images/hero-img/slide1.png";
+import Slider1 from "../../assets/images/hero-img/slide1.png";
+import Slider2 from "../../assets/images/hero-img/slide2.png";
+import Slider3 from "../../assets/images/hero-img/slide3.png";
+import Slider4 from "../../assets/images/hero-img/slide4.png";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,38 +14,38 @@ import "swiper/css/pagination";
 import "./OnlineItem.css";
 
 // import required modules
-import { Pagination } from "swiper/modules";
+import { FreeMode, Pagination } from "swiper/modules";
 
-const OnlineItem = () => {
+const OnlineItem = ({ title, description }) => {
   return (
     <div>
-      <div className="py-20 bg-nu60">
+      <div className="py-20 bg-nu10">
         <div className="container-2">
+          <div className="text-center mb-14">
+            <h4 className="text-primary1 font-cinzel mb-3">{title}</h4>
+            <h2 className="text-primary1 font-semibold">{description}</h2>
+          </div>
           <Swiper
             slidesPerView={3}
             spaceBetween={30}
-            centeredSlides={true}
-            // autoplay={{
-            //   delay: 3000,
-            //   disableOnInteraction: false,
-            // }}
+            freeMode={true}
             pagination={{
               clickable: true,
             }}
-            modules={[Pagination]}
+            modules={[FreeMode, Pagination]}
             className="mySwiper"
           >
             <SwiperSlide>
-              <img src={Slider} />
+              <img src={Slider1} alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+              <img src={Slider2} alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+              <img src={Slider3} alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+              <img src={Slider4} alt="" />
             </SwiperSlide>
           </Swiper>
         </div>
