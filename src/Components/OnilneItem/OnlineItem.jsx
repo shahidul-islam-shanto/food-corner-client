@@ -19,7 +19,7 @@ import { FreeMode, Pagination } from "swiper/modules";
 const OnlineItem = ({ title, description }) => {
   return (
     <div>
-      <div className="py-20 bg-nu10">
+      <div className="lg:py-25 md:py-22 sm:py-20 py-18 bg-nu10">
         <div className="container-2">
           <div className="text-center mb-14">
             <h4 className="text-primary1 font-cinzel mb-3">{title}</h4>
@@ -35,17 +35,29 @@ const OnlineItem = ({ title, description }) => {
             modules={[FreeMode, Pagination]}
             className="mySwiper"
           >
-            <SwiperSlide>
-              <img src={Slider1} alt="" />
+            <SwiperSlide className="relative">
+              <img className="" src={Slider1} alt="" />
+              <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+                <h3 className="text-nu40 uppercase">Salads</h3>
+              </div>
             </SwiperSlide>
-            <SwiperSlide>
-              <img src={Slider2} alt="" />
+            <SwiperSlide className="relative">
+              <img className="" src={Slider2} alt="" />
+              <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+                <h3 className="text-nu40 uppercase">Soups</h3>
+              </div>
             </SwiperSlide>
-            <SwiperSlide>
-              <img src={Slider3} alt="" />
+            <SwiperSlide className="relative">
+              <img className="" src={Slider3} alt="" />
+              <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+                <h3 className="text-nu40 uppercase">Pizzas</h3>
+              </div>
             </SwiperSlide>
-            <SwiperSlide>
-              <img src={Slider4} alt="" />
+            <SwiperSlide className="relative">
+              <img className="" src={Slider4} alt="" />
+              <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+                <h3 className="text-nu40 uppercase">Desserts</h3>
+              </div>
             </SwiperSlide>
           </Swiper>
         </div>
