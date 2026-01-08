@@ -15,16 +15,17 @@ import "./OnlineItem.css";
 
 // import required modules
 import { FreeMode, Pagination } from "swiper/modules";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
-const OnlineItem = ({ title, description }) => {
+const OnlineItem = () => {
   return (
     <div>
       <div className="lg:py-25 md:py-22 sm:py-20 py-18 bg-nu10">
         <div className="container-2">
-          <div className="text-center mb-14">
-            <h4 className="text-primary1 font-cinzel mb-3">{title}</h4>
-            <h2 className="text-primary1 font-semibold">{description}</h2>
-          </div>
+          <SectionTitle
+            title={"-- From 11:00PM to 10:00PM -- "}
+            subTitle={"ORDER ONLINE"}
+          />
           <Swiper
             slidesPerView={3}
             spaceBetween={30}

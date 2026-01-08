@@ -7,8 +7,7 @@ const Home = () => {
     <div>
       <Hero />
       <OnlineItem
-        title={"-- From 11:00PM to 10:00PM -- "}
-        description={"ORDER ONLINE"}
+        
       />
     </div>
   );

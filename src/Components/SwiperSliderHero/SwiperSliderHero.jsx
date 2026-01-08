@@ -28,7 +28,7 @@ const SwiperSliderHero = () => {
 
   return (
     <>
-      <div className="bg-nu10 pb-20">
+      <div className="bg-nu10 ">
         <div className="mb-16">
           <Swiper
             style={{
