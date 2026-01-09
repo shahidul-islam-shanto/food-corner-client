@@ -5,6 +5,7 @@ import Rectangle from "../../Components/Rectangle/Rectangle";
 import PopularMenu from "../PopularMenu/PopularMenu";
 import ContactSection from "../../Components/ContactSection/ContactSection";
 import Featured from "../Featured/Featured";
+import Testimonials from "../Testimonials/Testimonials";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <PopularMenu />
       <ContactSection />
       <Featured />
+      <Testimonials />
     </div>
   );
 };
