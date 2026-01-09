@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
-import Testimonial from "../../assets/images/hero-img/testimonials.png";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -51,7 +51,7 @@ const Testimonials = () => {
                     readOnly
                   />
                 </div>
-                <img className="" src={Testimonial} alt="" />
+                {/* <img className="w-6 h-6" src={Testimonial} alt="" /> */}
                 <p className="my-3">{item.details}</p>
                 <h3 className="text-nu102">{item.name}</h3>
               </div>
