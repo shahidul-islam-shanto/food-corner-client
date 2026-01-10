@@ -30,7 +30,7 @@ const NavBer = () => {
         <NavLink to={"/"}>Dashboard</NavLink>
       </li>
       <li className="text-nu20 uppercase">
-        <NavLink to={"/"}>Our Menu</NavLink>
+        <NavLink to={"/ourMenu"}>Our Menu</NavLink>
       </li>
       <li className="text-nu20 uppercase">
         <NavLink to={"/"}>Our Shop</NavLink>
@@ -52,7 +52,11 @@ const NavBer = () => {
           <div className="text-nu20 text-2xl font-semibold">
             <Link to={""}>
               <div className="flex justify-center items-center gap-2">
-                <img className="w-10 h-10 border-2 border-nu102 rounded-full" src={Logo} alt="" />
+                <img
+                  className="w-10 h-10 border-2 border-nu102 rounded-full"
+                  src={Logo}
+                  alt=""
+                />
 
                 <div className="flex items-center">
                   <span className="lg:text-[32px] md:text-[28px] text-[24px] font-bold font-cinzel">
