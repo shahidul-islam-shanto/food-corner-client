@@ -18,7 +18,7 @@ const Recommends = () => {
       <div className="container-2">
         <div className="grid grid-cols-12 gap-6">
           {recommend.map((item) => (
-            <div className="col-span-4">
+            <div className="col-span-4 h-full">
               <RecommendCard key={item._id} recommendCord={item} />
             </div>
           ))}

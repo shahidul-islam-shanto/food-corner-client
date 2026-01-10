@@ -1,5 +1,4 @@
 import React from "react";
-import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import "./Featured.css";
 import Features from "../../assets/images/hero-img/features2.png";
 
