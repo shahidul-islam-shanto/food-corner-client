@@ -6,7 +6,7 @@ import Features from "../../assets/images/hero-img/features2.png";
 const Featured = () => {
   return (
     <>
-      <div className="feature-section text-nu10 py-34">
+      <div className="feature-section text-nu10 py-34 ">
         <div className="container-2">
           <div className="text-center mb-14">
             <h4 className="text-nu10 font-cinzel mb-3">---Check it out---</h4>

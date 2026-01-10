@@ -6,6 +6,7 @@ import PopularMenu from "../PopularMenu/PopularMenu";
 import ContactSection from "../../Components/ContactSection/ContactSection";
 import Featured from "../Featured/Featured";
 import Testimonials from "../Testimonials/Testimonials";
+import Recommends from "../Recommends/Recommends";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Rectangle />
       <PopularMenu />
       <ContactSection />
+      <Recommends />
       <Featured />
       <Testimonials />
     </div>
