@@ -6,6 +6,7 @@ import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import OurMenuItems from "./OurMenuItems";
 import OurMenuItemImg from "./OurMenuItemImg";
 import ItemMenus from "../../assets/images/our-menu/our-menu-item1.png";
+import { Link } from "react-router-dom";
 
 const OurMenu = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -64,9 +65,11 @@ const OurMenu = () => {
               />
 
               <div className="text-center mb-14">
-                <button className="border-b-2 border-nu60 hover:bg-nu60 hover:text-nu10 duration-500 px-6 py-3 rounded-xl font-medium">
-                  ORDER YOUR FAVOURITE FOOD
-                </button>
+                <Link to={""}>
+                  <button className="border-b-2 border-nu60 hover:bg-nu60 hover:text-nu10 duration-500 px-6 py-3 rounded-xl font-medium">
+                    ORDER YOUR FAVOURITE FOOD
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
