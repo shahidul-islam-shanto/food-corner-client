@@ -4,7 +4,7 @@ import BredCrumb from "../../Components/BredCrumb/BredCrumb";
 import BredCrumbImg from "../../assets/images/our-menu/our-menu.png";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import OurMenuItems from "./OurMenuItems";
-import OurMenuItemImg from "./OurMenuItemImg";
+import OurMenuItemImg from "../../Components/OurMenuItemImg/OurMenuItemImg";
 import ItemMenus from "../../assets/images/our-menu/our-menu-item1.png";
 import { Link } from "react-router-dom";
 
