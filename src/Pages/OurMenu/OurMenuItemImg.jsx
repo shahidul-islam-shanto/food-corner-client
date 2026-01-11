@@ -3,7 +3,7 @@ import React from "react";
 const OurMenuItemImg = ({ categoryImg, BredCrumbImg, subTitle }) => {
   return (
     <>
-      <section className="relative py-20">
+      <section className="relative py-16">
         <img src={BredCrumbImg} alt="" />
         <div className="w-[60%] h-[60%] px-16 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#00000075]">
           <div className="container-2 h-full flex justify-center items-center">
