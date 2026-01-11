@@ -1,15 +1,23 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import BredCrumb from "../../Components/BredCrumb/BredCrumb";
+import BredCrumbImg from "../../assets/images/our-menu/our-menu.png";
 
 const OurMenu = () => {
   return (
-    <div>
+    <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Our Menu</title>
+        <title>Food Corner - Our Menu</title>
       </Helmet>
-      <h1>this is menu page</h1>
-    </div>
+      <div className="">
+        <BredCrumb
+          title={"OUR MENU"}
+          subTitle={"Would you like to try a dish?"}
+          BredCrumbImg={BredCrumbImg}
+        />
+      </div>
+    </>
   );
 };
 
