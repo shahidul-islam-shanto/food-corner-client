@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import PopularDetails from "../Shared/PopularDetails";
+import { Link } from "react-router-dom";
 
 const PopularMenu = () => {
   const [popularItem, setPopularItem] = useState([]);
@@ -27,6 +28,13 @@ const PopularMenu = () => {
               <PopularDetails key={item._id} popularItem={item} />
             </div>
           ))}
+        </div>
+        <div className="text-center mb-14">
+          <Link to={""}>
+            <button className="border-b-2 border-nu60 hover:bg-nu60 hover:text-nu10 duration-500 px-6 py-3 rounded-xl font-medium">
+              View Full Menu
+            </button>
+          </Link>
         </div>
       </div>
     </div>
