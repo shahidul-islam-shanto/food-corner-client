@@ -39,14 +39,18 @@ const OurMenu = () => {
           <div className="">
             {/* Salad item */}
             <MenuCategory itemCategory={dessert} salad={"Dessert"} />
+            {/* Pizza item */}
             <MenuCategory itemCategory={pizza} salad={"Pizza"} />
+            {/* Salad item */}
             <MenuCategory itemCategory={salad} salad={"Salad"} />
+            {/* Soup item */}
             <MenuCategory itemCategory={soup} salad={"Soup"} />
+            {/* Drinks item */}
             <MenuCategory itemCategory={drinks} salad={"Drinks"} />
+            {/* Popular item */}
             <MenuCategory itemCategory={popular} salad={"Popular"} />
+            {/* Offered item */}
             <MenuCategory itemCategory={offered} salad={"Offered"} />
-
-           
           </div>
         </div>
       </div>
