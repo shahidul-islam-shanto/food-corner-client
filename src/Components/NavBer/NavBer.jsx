@@ -33,7 +33,7 @@ const NavBer = () => {
         <NavLink to={"/ourMenu"}>Our Menu</NavLink>
       </li>
       <li className="text-nu20 uppercase">
-        <NavLink to={"/"}>Our Shop</NavLink>
+        <NavLink to={"/ourShop"}>Our Shop</NavLink>
       </li>
 
       {/* <li className="text-nu20">
