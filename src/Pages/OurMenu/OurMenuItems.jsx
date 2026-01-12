@@ -10,7 +10,7 @@ const OurMenuItems = ({ menusItem }) => {
       />
       <div className="">
         <p className="font-cinzel uppercase mb-2">
-          {menusItem.name} ----------------
+          {menusItem.name} ------------
         </p>
         <p className="text-nu40">{menusItem.recipe}</p>
       </div>
