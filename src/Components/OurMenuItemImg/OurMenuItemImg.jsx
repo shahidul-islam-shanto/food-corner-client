@@ -5,7 +5,7 @@ import "./OurMenuItemImg.css";
 const OurMenuItemImg = ({ categoryImg, BredCrumbImg, subTitle }) => {
   return (
     <>
-      <section className="relative py-16">
+      <section className="relative py-10">
         <img className="bg-fixed" src={BredCrumbImg} alt="" />
         <div className="w-[60%] h-[60%] px-16 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#00000075]">
           <div className="container-2 h-full flex justify-center items-center">
