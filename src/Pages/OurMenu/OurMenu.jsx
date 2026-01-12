@@ -3,10 +3,14 @@ import { Helmet } from "react-helmet";
 import BredCrumb from "../../Components/BredCrumb/BredCrumb";
 import BredCrumbImg from "../../assets/images/our-menu/our-menu.png";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
-import OurMenuItems from "./OurMenuItems";
-import OurMenuItemImg from "../../Components/OurMenuItemImg/OurMenuItemImg";
-import ItemMenus from "../../assets/images/our-menu/our-menu-item1.png";
-import { Link } from "react-router-dom";
+import ItemMenus1 from "../../assets/images/our-menu/our-menu-item1.png";
+import ItemMenus2 from "../../assets/images/our-menu/our-menu-item2.png";
+import ItemMenus3 from "../../assets/images/our-menu/our-menu-item3.png";
+import ItemMenus4 from "../../assets/images/our-menu/our-menu-item4.png";
+import ItemMenus5 from "../../assets/images/our-menu/our-menu-item5.png";
+import ItemMenus6 from "../../assets/images/our-menu/our-menu-item6.png";
+import ItemMenus7 from "../../assets/images/our-menu/our-menu-item7.png";
+
 import useMenu from "../../hooks/useMenu";
 import MenuCategory from "../../Components/MenuCategory/MenuCategory";
 
@@ -38,19 +42,47 @@ const OurMenu = () => {
         <div className="container-2">
           <div className="">
             {/* Salad item */}
-            <MenuCategory itemCategory={dessert} salad={"Dessert"} />
+            <MenuCategory
+              itemCategory={dessert}
+              ItemMenus={ItemMenus1}
+              salad={"Dessert"}
+            />
             {/* Pizza item */}
-            <MenuCategory itemCategory={pizza} salad={"Pizza"} />
+            <MenuCategory
+              itemCategory={pizza}
+              ItemMenus={ItemMenus2}
+              salad={"Pizza"}
+            />
             {/* Salad item */}
-            <MenuCategory itemCategory={salad} salad={"Salad"} />
+            <MenuCategory
+              itemCategory={salad}
+              ItemMenus={ItemMenus3}
+              salad={"Salad"}
+            />
             {/* Soup item */}
-            <MenuCategory itemCategory={soup} salad={"Soup"} />
+            <MenuCategory
+              itemCategory={soup}
+              ItemMenus={ItemMenus4}
+              salad={"Soup"}
+            />
             {/* Drinks item */}
-            <MenuCategory itemCategory={drinks} salad={"Drinks"} />
+            <MenuCategory
+              itemCategory={drinks}
+              ItemMenus={ItemMenus5}
+              salad={"Drinks"}
+            />
             {/* Popular item */}
-            <MenuCategory itemCategory={popular} salad={"Popular"} />
+            <MenuCategory
+              itemCategory={popular}
+              ItemMenus={ItemMenus6}
+              salad={"Popular"}
+            />
             {/* Offered item */}
-            <MenuCategory itemCategory={offered} salad={"Offered"} />
+            <MenuCategory
+              itemCategory={offered}
+              ItemMenus={ItemMenus7}
+              salad={"Offered"}
+            />
           </div>
         </div>
       </div>

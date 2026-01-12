@@ -1,10 +1,9 @@
 import React from "react";
 import OurMenuItems from "../../Pages/OurMenu/OurMenuItems";
 import OurMenuItemImg from "../OurMenuItemImg/OurMenuItemImg";
-import ItemMenus from "../../assets/images/our-menu/our-menu-item1.png";
 import { Link } from "react-router-dom";
 
-const MenuCategory = ({ itemCategory, salad }) => {
+const MenuCategory = ({ itemCategory, salad, ItemMenus }) => {
   return (
     <div>
       <OurMenuItemImg
