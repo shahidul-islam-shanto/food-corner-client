@@ -1,6 +1,8 @@
 import React from "react";
 import OurShopCard from "./OurShopCard";
 import OurShopInput from "./OurShopInput";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
   return (
@@ -51,6 +53,23 @@ const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
             ))}
           </div>
         </div>
+      </div>
+      <div className="flex justify-center items-center gap-4">
+        <span className="px-3 py-3 rounded-full bg-nu30 hover:bg-nu102 duration-300">
+          <IoIosArrowBack className="text-[20px]" />
+        </span>
+        <span className="px-4.5 py-2  font-medium rounded-full bg-nu30 hover:bg-nu102 duration-300">
+          1
+        </span>
+        <span className="px-4.5 py-2  font-medium rounded-full bg-nu30 hover:bg-nu102 duration-300">
+          2
+        </span>
+        <span className="px-4.5 py-2 font-medium  rounded-full bg-nu30 hover:bg-nu102 duration-300">
+          3
+        </span>
+        <span className="px-3  py-3 rounded-full bg-nu30 hover:bg-nu102 duration-300">
+          <IoIosArrowForward className="text-[20px]" />
+        </span>
       </div>
     </div>
   );
