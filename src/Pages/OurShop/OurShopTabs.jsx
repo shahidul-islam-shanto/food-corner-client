@@ -14,7 +14,7 @@ const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
         <div className="tab-content border-0 px-10 py-10">
           <div className="grid grid-cols-12 gap-6">
             {salad.map((item) => (
-              <div className="col-span-4">
+              <div key={item._id} className="col-span-4">
                 <div className="bg-nu20 px-6 py-6 rounded-md w-full h-full">
                   <img className="mb-6 rounded-md" src={item.image} alt="" />
                   <div className="text-center mb-6">
@@ -46,7 +46,7 @@ const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
         <div className="tab-content border-0  px-10 py-10">
           <div className="grid grid-cols-12 gap-6">
             {pizza.map((item) => (
-              <div className="col-span-4">
+              <div key={item._id} className="col-span-4">
                 <div className="bg-nu20 px-6 py-6 rounded-md w-full h-full">
                   <img className="mb-6 rounded-md" src={item.image} alt="" />
                   <div className="text-center mb-6">
@@ -77,7 +77,7 @@ const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
         <div className="tab-content border-0 px-10 py-10">
           <div className="grid grid-cols-12 gap-6">
             {soup.map((item) => (
-              <div className="col-span-4">
+              <div key={item._id} className="col-span-4">
                 <div className="bg-nu20 px-6 py-6 rounded-md w-full h-full">
                   <img className="mb-6 rounded-md" src={item.image} alt="" />
                   <div className="text-center mb-6">
@@ -108,7 +108,7 @@ const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
         <div className="tab-content border-0 px-10 py-10">
           <div className="grid grid-cols-12 gap-6">
             {dessert.map((item) => (
-              <div className="col-span-4">
+              <div key={item._id} className="col-span-4">
                 <div className="bg-nu20 px-6 py-6 rounded-md w-full h-full">
                   <img className="mb-6 rounded-md" src={item.image} alt="" />
                   <div className="text-center mb-6">
@@ -139,7 +139,7 @@ const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
         <div className="tab-content border-0 px-10 py-10">
           <div className="grid grid-cols-12 gap-6">
             {drinks.map((item) => (
-              <div className="col-span-4">
+              <div key={item._id} className="col-span-4">
                 <div className="bg-nu20 px-6 py-6 rounded-md w-full h-full">
                   <img className="mb-6 rounded-md" src={item.image} alt="" />
                   <div className="text-center mb-6">
