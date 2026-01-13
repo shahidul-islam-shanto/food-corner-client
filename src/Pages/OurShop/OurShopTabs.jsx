@@ -15,8 +15,15 @@ const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
           <div className="grid grid-cols-12 gap-6">
             {salad.map((item) => (
               <div key={item._id} className="col-span-4">
-                <div className="bg-nu20 px-6 py-6 rounded-md w-full h-full">
-                  <img className="mb-6 rounded-md" src={item.image} alt="" />
+                <div className="bg-nu20 px-4 py-4 rounded-md w-full h-full">
+                  <div className="relative">
+                    <img className="mb-6 rounded-md" src={item.image} alt="" />
+                    <div className=" absolute top-2 right-2">
+                      <p className="text-nu10 px-3 py-1 bg-nu80 font-medium rounded-md inline-block">
+                        ${item.price}
+                      </p>
+                    </div>
+                  </div>
                   <div className="text-center mb-6">
                     <h4 className="text-nu60 font-semibold mb-2">
                       {item.name}
@@ -47,8 +54,15 @@ const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
           <div className="grid grid-cols-12 gap-6">
             {pizza.map((item) => (
               <div key={item._id} className="col-span-4">
-                <div className="bg-nu20 px-6 py-6 rounded-md w-full h-full">
-                  <img className="mb-6 rounded-md" src={item.image} alt="" />
+                <div className="bg-nu20 px-4 py-4 rounded-md w-full h-full">
+                  <div className="relative">
+                    <img className="mb-6 rounded-md" src={item.image} alt="" />
+                    <div className=" absolute top-2 right-2">
+                      <p className="text-nu10 px-3 py-1 bg-nu80 font-medium rounded-md inline-block">
+                        ${item.price}
+                      </p>
+                    </div>
+                  </div>
                   <div className="text-center mb-6">
                     <h4 className="text-nu60 font-semibold mb-2">
                       {item.name}
@@ -78,8 +92,15 @@ const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
           <div className="grid grid-cols-12 gap-6">
             {soup.map((item) => (
               <div key={item._id} className="col-span-4">
-                <div className="bg-nu20 px-6 py-6 rounded-md w-full h-full">
-                  <img className="mb-6 rounded-md" src={item.image} alt="" />
+                <div className="bg-nu20 px-4 py-4 rounded-md w-full h-full">
+                  <div className="relative">
+                    <img className="mb-6 rounded-md" src={item.image} alt="" />
+                    <div className=" absolute top-2 right-2">
+                      <p className="text-nu10 px-3 py-1 bg-nu80 font-medium rounded-md inline-block">
+                        ${item.price}
+                      </p>
+                    </div>
+                  </div>
                   <div className="text-center mb-6">
                     <h4 className="text-nu60 font-semibold mb-2">
                       {item.name}
@@ -109,8 +130,15 @@ const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
           <div className="grid grid-cols-12 gap-6">
             {dessert.map((item) => (
               <div key={item._id} className="col-span-4">
-                <div className="bg-nu20 px-6 py-6 rounded-md w-full h-full">
-                  <img className="mb-6 rounded-md" src={item.image} alt="" />
+                <div className="bg-nu20 px-4 py-4 rounded-md w-full h-full">
+                  <div className="relative">
+                    <img className="mb-6 rounded-md" src={item.image} alt="" />
+                    <div className=" absolute top-2 right-2">
+                      <p className="text-nu10 px-3 py-1 bg-nu80 font-medium rounded-md inline-block">
+                        ${item.price}
+                      </p>
+                    </div>
+                  </div>
                   <div className="text-center mb-6">
                     <h4 className="text-nu60 font-semibold mb-2">
                       {item.name}
@@ -140,8 +168,15 @@ const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
           <div className="grid grid-cols-12 gap-6">
             {drinks.map((item) => (
               <div key={item._id} className="col-span-4">
-                <div className="bg-nu20 px-6 py-6 rounded-md w-full h-full">
-                  <img className="mb-6 rounded-md" src={item.image} alt="" />
+                <div className="bg-nu20 px-4 py-4 rounded-md w-full h-full">
+                  <div className="relative">
+                    <img className="mb-6 rounded-md" src={item.image} alt="" />
+                    <div className=" absolute top-2 right-2">
+                      <p className="text-nu10 px-3 py-1 bg-nu80 font-medium rounded-md inline-block">
+                        ${item.price}
+                      </p>
+                    </div>
+                  </div>
                   <div className="text-center mb-6">
                     <h4 className="text-nu60 font-semibold mb-2">
                       {item.name}
