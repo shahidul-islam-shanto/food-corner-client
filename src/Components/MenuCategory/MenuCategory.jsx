@@ -3,11 +3,11 @@ import OurMenuItems from "../../Pages/OurMenu/OurMenuItems";
 import OurMenuItemImg from "../OurMenuItemImg/OurMenuItemImg";
 import { Link } from "react-router-dom";
 
-const MenuCategory = ({ itemCategory, salad, ItemMenus }) => {
+const MenuCategory = ({ itemCategory, title, ItemMenus }) => {
   return (
     <div>
       <OurMenuItemImg
-        categoryImg={salad}
+        categoryImg={title}
         BredCrumbImg={ItemMenus}
         subTitle={
           "Welcome to our cozy and vibrant restaurant, where every meal is a celebration of flavors. We specialize in serving fresh, high-quality dishes made from locally sourced ingredients."
@@ -22,7 +22,7 @@ const MenuCategory = ({ itemCategory, salad, ItemMenus }) => {
         ))}
       </div>
       <div className="text-center">
-        <Link to={""}>
+        <Link to={`/ourShop/${title}`}>
           <button className="border-b-2 border-nu60 hover:bg-nu60 hover:text-nu10 duration-500 px-6 py-3 rounded-xl font-medium">
             ORDER YOUR FAVOURITE FOOD
           </button>
