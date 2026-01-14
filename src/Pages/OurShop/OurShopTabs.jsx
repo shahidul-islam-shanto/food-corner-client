@@ -1,59 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import OurShopCard from "./OurShopCard";
-import OurShopInput from "./OurShopInput";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import useMenu from "../../hooks/useMenu";
+import { useParams } from "react-router-dom";
 
-const OurShopTabs = ({ salad, pizza, soup, dessert, drinks }) => {
+const OurShopTabs = () => {
+  const categories = ["salad", "pizza", "soup", "dessert", "drinks"];
+  const { category } = useParams();
+  const initialIndex = categories.indexOf(category);
+  const [tabIndex, setTabIndex] = useState(initialIndex);
+
+  const [menuItems] = useMenu();
+  const salad = menuItems.filter((item) => item.category === "salad");
+  const pizza = menuItems.filter((item) => item.category === "pizza");
+  const soup = menuItems.filter((item) => item.category === "soup");
+  const dessert = menuItems.filter((item) => item.category === "dessert");
+  const drinks = menuItems.filter((item) => item.category === "drinks");
   return (
     <div>
-      <div className="tabs tabs-border  border-0 flex justify-center items-center">
-        {/* card 1 */}
-        <OurShopInput inputsCard={"Salad"} />
-        <div className="tab-content border-0 px-10 py-10">
+      <Tabs
+        selectedIndex={tabIndex}
+        onSelect={(index) => setTabIndex(index)}
+        className="mb-10"
+      >
+        <TabList className="flex justify-center items-center gap-4 mb-16">
+          <Tab>Salad</Tab>
+          <Tab>Pizza</Tab>
+          <Tab>Soup</Tab>
+          <Tab>Dessert</Tab>
+          <Tab>Drinks</Tab>
+        </TabList>
+        <TabPanel>
           <div className="grid grid-cols-12 gap-6">
             {salad.map((item) => (
-              <OurShopCard items={item} />
+              <OurShopCard key={item._id} items={item} />
             ))}
           </div>
-        </div>
-        {/* card 2 */}
-        <OurShopInput inputsCard={"Pizza"} />
-        <div className="tab-content border-0  px-10 py-10">
+        </TabPanel>
+        <TabPanel>
           <div className="grid grid-cols-12 gap-6">
             {pizza.map((item) => (
-              <OurShopCard items={item} />
+              <OurShopCard key={item._id} items={item} />
             ))}
           </div>
-        </div>
-        {/* card 3 */}
-        <OurShopInput inputsCard={"Soup"} />
-        <div className="tab-content border-0 px-10 py-10">
+        </TabPanel>
+        <TabPanel>
           <div className="grid grid-cols-12 gap-6">
             {soup.map((item) => (
-              <OurShopCard items={item} />
+              <OurShopCard key={item._id} items={item} />
             ))}
           </div>
-        </div>
-        {/* card 4 */}
-        <OurShopInput inputsCard={"Dessert"} />
-        <div className="tab-content border-0 px-10 py-10">
+        </TabPanel>
+        <TabPanel>
           <div className="grid grid-cols-12 gap-6">
             {dessert.map((item) => (
-              <OurShopCard items={item} />
+              <OurShopCard key={item._id} items={item} />
             ))}
           </div>
-        </div>
-        {/* card 5 */}
-        <OurShopInput inputsCard={"Drinks"} />
-        <div className="tab-content border-0 px-10 py-10">
+        </TabPanel>
+        <TabPanel>
           <div className="grid grid-cols-12 gap-6">
             {drinks.map((item) => (
-              <OurShopCard items={item} />
+              <OurShopCard key={item._id} items={item} />
             ))}
           </div>
-        </div>
-      </div>
+        </TabPanel>
+      </Tabs>
+
       <div className="flex justify-center items-center gap-4">
         <span className="px-3 py-3 rounded-full bg-nu30 hover:bg-nu102 duration-300">
           <IoIosArrowBack className="text-[20px]" />

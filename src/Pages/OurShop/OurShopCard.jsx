@@ -5,7 +5,7 @@ const OurShopCard = ({ items }) => {
     <div key={items._id} className="col-span-4">
       <div className="bg-nu20 px-4 py-4 rounded-md w-full h-full">
         <div className="relative">
-          <img className="mb-6 rounded-md" src={items.image} alt="" />
+          <img className="w-full mb-6 rounded-md" src={items.image} alt="" />
           <div className=" absolute top-2 right-2">
             <p className="text-nu10 px-3 py-1 bg-nu80 font-medium rounded-md inline-block">
               ${items.price}
