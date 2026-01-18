@@ -8,15 +8,6 @@ import Logo from "../../assets/images/hero-img/logo.png";
 
 const NavBer = () => {
   const [open, setOpen] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
-
-  const handleSearch = (e) => {
-    if (e.key === "Enter") {
-      console.log("Search value:", e.target.value);
-      setShowSearch(false);
-      e.target.value = "";
-    }
-  };
 
   const NavBer = (
     <>
