@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import LoginFrom from "../../assets/images/authentication/authentication1.png";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -19,6 +20,11 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        Swal.fire({
+          title: "Successfully Sing In!",
+          icon: "success",
+          draggable: true,
+        });
       })
       .catch((error) => {
         console.error(error);
