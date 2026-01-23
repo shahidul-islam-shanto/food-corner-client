@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
 import { FaFacebookF } from "react-icons/fa";
@@ -16,6 +15,8 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
   const { singInEmailPassword } = useContext(AuthContext);
+  const [disabled, setDisabled] = useState(true);
+  const captchaRef = useRef(null);
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
@@ -31,9 +32,20 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
       })
-      .then((error) => {
+      .catch((error) => {
         console.error(error);
       });
+  };
+
+  const handleValidateCaptcha = () => {
+    const user_Captcha_value = captchaRef.current.value;
+    console.log(values);
+
+    if (validateCaptcha(user_Captcha_value)) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
   };
 
   return (
@@ -88,22 +100,30 @@ const Login = () => {
 
                     {/* Reload Captcha */}
 
-                    <div>
+                    <div className="mb-6">
                       <label htmlFor="" className=" py-2 inline-block">
                         <LoadCanvasTemplate className="bg-nu30" />
                       </label>
                       <input
                         type="text"
                         name="captcha"
+                        ref={captchaRef}
                         placeholder="Enter your captcha..."
-                        className="w-full px-3 py-2 mb-4 border border-nu60 placeholder:text-nu60 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                        className="w-full px-3 py-2 mb-3 border border-nu60 placeholder:text-nu60 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                       />
+                      <button
+                        onClick={handleValidateCaptcha}
+                        className="btn btn-neutral rounded-xl text-nu10 bg-primary1 block w-full"
+                      >
+                        Validate
+                      </button>
                     </div>
 
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="w-full text-nu10 py-2 rounded-xl bg-primary1 duration-500 cursor-pointer font-bold"
+                      disabled={disabled}
+                      className="w-full text-nu60 py-2 rounded-xl bg-nu107 duration-500 cursor-pointer font-bold"
                     >
                       Login
                     </button>
