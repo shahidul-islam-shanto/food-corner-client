@@ -12,6 +12,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 // import useAuth from "../../Hooks/useAuth";
 import LoginFrom from "../../assets/images/authentication/authentication1.png";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { singInEmailPassword } = useContext(AuthContext);
@@ -31,6 +32,11 @@ const Login = () => {
     singInEmailPassword(email, password)
       .then((result) => {
         console.log(result.user);
+        Swal.fire({
+          title: "Successfully Log In!",
+          icon: "success",
+          draggable: true,
+        });
       })
       .catch((error) => {
         console.error(error);
@@ -39,10 +45,14 @@ const Login = () => {
 
   const handleValidateCaptcha = () => {
     const user_Captcha_value = captchaRef.current.value;
-    console.log(values);
 
     if (validateCaptcha(user_Captcha_value)) {
       setDisabled(false);
+      Swal.fire({
+        title: "Successfully Captcha!",
+        icon: "success",
+        draggable: true,
+      });
     } else {
       setDisabled(true);
     }
@@ -123,7 +133,7 @@ const Login = () => {
                     <button
                       type="submit"
                       disabled={disabled}
-                      className="w-full text-nu60 py-2 rounded-xl bg-nu107 duration-500 cursor-pointer font-bold"
+                      className="w-full text-nu60 py-2 rounded-xl bg-nu107 hover:bg-nu101 duration-500 cursor-pointer font-bold"
                     >
                       Login
                     </button>

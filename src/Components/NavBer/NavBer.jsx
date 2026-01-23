@@ -1,13 +1,25 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaRegUserCircle } from "react-icons/fa";
 import Logo from "../../assets/images/hero-img/logo.png";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const NavBer = () => {
   const [open, setOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const NavBer = (
     <>
@@ -68,31 +80,31 @@ const NavBer = () => {
                 </span>
               </Link>
             </div>
-            {/* <div className="">
-              {user?.email ? (
-                <li>
-                  <button
-                    onClick={handleLogOut}
-                    className="px-4 py-2 bg-primary1 rounded-lg"
-                  >
-                    Sing Out
-                  </button>
-                </li>
-              ) : (
-                <Link to={"/login"}>
-                  <button className="px-4 py-2 bg-primary1 rounded-lg">
-                    Login
-                  </button>
-                </Link>
-              )}
-            </div> */}
+
             <div className="">
-              <Link to={"/register"} className="flex items-center gap-2">
-                <button className=" text-nu10  rounded-lg">Sing Out</button>
+              <div className="flex items-center gap-2">
+                <div className="">
+                  {user?.email ? (
+                    <li>
+                      <button
+                        onClick={handleLogOut}
+                        className="px-4 py-2 text-nu10 rounded-lg"
+                      >
+                        Sing Out
+                      </button>
+                    </li>
+                  ) : (
+                    <Link to={"/login"}>
+                      <button className="px-4 py-2  text-nu10 rounded-lg">
+                        Login
+                      </button>
+                    </Link>
+                  )}
+                </div>
                 <span>
                   <FaRegUserCircle className="text-nu10 text-[32px] font-bold" />
                 </span>
-              </Link>
+              </div>
             </div>
           </div>
         </div>
