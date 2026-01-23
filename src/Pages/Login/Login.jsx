@@ -1,5 +1,10 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  LoadCanvasTemplateNoReload,
+  validateCaptcha,
+} from "react-simple-captcha";
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa";
@@ -9,6 +14,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoginFrom from "../../assets/images/authentication/authentication1.png";
 
 const Login = () => {
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, []);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
       <div className="bg-nu10 py-20">
@@ -22,7 +35,7 @@ const Login = () => {
             <div className="col-span-6">
               <div className=" flex items-center justify-center">
                 <div className="border-2 border-nu60 rounded-2xl px-10 py-10 w-full max-w-2xl space-y-4">
-                  <form className="">
+                  <form onSubmit={handleLogin} className="">
                     <h1 className="text-xl mb-6 font-bold text-center">
                       Login your account
                     </h1>
@@ -55,6 +68,20 @@ const Login = () => {
                         type="password"
                         name="password"
                         placeholder="Enter your password..."
+                        className="w-full px-3 py-2 mb-4 border border-nu60 placeholder:text-nu60 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                      />
+                    </div>
+
+                    {/* Reload Captcha */}
+
+                    <div>
+                      <label htmlFor="" className=" py-2 inline-block">
+                        <LoadCanvasTemplate className="bg-nu30" />
+                      </label>
+                      <input
+                        type="text"
+                        name="captcha"
+                        placeholder="Enter your captcha..."
                         className="w-full px-3 py-2 mb-4 border border-nu60 placeholder:text-nu60 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                       />
                     </div>
