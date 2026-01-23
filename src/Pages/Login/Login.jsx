@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -12,14 +12,28 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 // import Swal from "sweetalert2";
 // import useAuth from "../../Hooks/useAuth";
 import LoginFrom from "../../assets/images/authentication/authentication1.png";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+  const { singInEmailPassword } = useContext(AuthContext);
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();
+
+    const from = e.target;
+    const email = from.email.value;
+    const password = from.password.value;
+
+    singInEmailPassword(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .then((error) => {
+        console.error(error);
+      });
   };
 
   return (
