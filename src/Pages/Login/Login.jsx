@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -8,8 +8,6 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import Swal from "sweetalert2";
-// import useAuth from "../../Hooks/useAuth";
 import LoginFrom from "../../assets/images/authentication/authentication1.png";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -17,6 +15,10 @@ import Swal from "sweetalert2";
 const Login = () => {
   const { singInEmailPassword } = useContext(AuthContext);
   const [disabled, setDisabled] = useState(true);
+  const navigatePath = useNavigate();
+  const location = useLocation();
+
+  const fromState = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -37,6 +39,7 @@ const Login = () => {
           icon: "success",
           draggable: true,
         });
+        navigatePath(fromState, { replace: true });
       })
       .catch((error) => {
         console.error(error);
@@ -48,11 +51,6 @@ const Login = () => {
 
     if (validateCaptcha(user_Captcha_value)) {
       setDisabled(false);
-      Swal.fire({
-        title: "Successfully Captcha!",
-        icon: "success",
-        draggable: true,
-      });
     } else {
       setDisabled(true);
     }
