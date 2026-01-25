@@ -17,7 +17,7 @@ import Swal from "sweetalert2";
 const Login = () => {
   const { singInEmailPassword } = useContext(AuthContext);
   const [disabled, setDisabled] = useState(true);
-  const captchaRef = useRef(null);
+
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
@@ -43,8 +43,8 @@ const Login = () => {
       });
   };
 
-  const handleValidateCaptcha = () => {
-    const user_Captcha_value = captchaRef.current.value;
+  const handleValidateCaptcha = (e) => {
+    const user_Captcha_value = e.target.value;
 
     if (validateCaptcha(user_Captcha_value)) {
       setDisabled(false);
@@ -117,16 +117,10 @@ const Login = () => {
                       <input
                         type="text"
                         name="captcha"
-                        ref={captchaRef}
+                        onBlur={handleValidateCaptcha}
                         placeholder="Enter your captcha..."
                         className="w-full px-3 py-2 mb-3 border border-nu60 placeholder:text-nu60 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                       />
-                      <button
-                        onClick={handleValidateCaptcha}
-                        className="btn btn-neutral rounded-xl text-nu10 bg-primary1 block w-full"
-                      >
-                        Validate
-                      </button>
                     </div>
 
                     {/* Submit Button */}
