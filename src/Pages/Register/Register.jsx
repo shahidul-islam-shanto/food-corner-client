@@ -14,10 +14,12 @@ const Register = () => {
     e.preventDefault();
 
     const from = e.target;
+    const name = from.name.value;
     const email = from.email.value;
     const password = from.password.value;
+    const url = from.url.value;
 
-    createUser(email, password)
+    createUser(name, email, password, url)
       .then((result) => {
         console.log(result.user);
         Swal.fire({
@@ -53,6 +55,20 @@ const Register = () => {
                         type="text"
                         name="name"
                         placeholder="Enter your Name..."
+                        className="w-full px-3 py-2 mb-4 border border-nu60 placeholder:text-nu60 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="block mb-1 font-semibold"
+                      >
+                        Photo Url
+                      </label>
+                      <input
+                        type="text"
+                        name="url"
+                        placeholder="Enter your PhotoUrl..."
                         className="w-full px-3 py-2 mb-4 border border-nu60 placeholder:text-nu60 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                       />
                     </div>
