@@ -1,7 +1,7 @@
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa";
-import { data, Link } from "react-router-dom";
+import { data, Link, useNavigate } from "react-router-dom";
 import LoginFrom from "../../assets/images/authentication/authentication1.png";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -28,6 +29,7 @@ const Register = () => {
           title: "Successfully Sign Up!",
           icon: "success",
         });
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
