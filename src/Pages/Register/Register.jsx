@@ -1,37 +1,43 @@
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import LoginFrom from "../../assets/images/authentication/authentication1.png";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photoURL = form.url.value;
 
-    const from = e.target;
-    const name = from.name.value;
-    const email = from.email.value;
-    const password = from.password.value;
-    const url = from.url.value;
-
-    createUser(name, email, password, url)
+    createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        return updateUserProfile(name, photoURL);
+      })
+      .then(() => {
         Swal.fire({
-          title: "Successfully Sing In!",
+          title: "Successfully Sign Up!",
           icon: "success",
-          draggable: true,
         });
       })
       .catch((error) => {
         console.error(error);
+        Swal.fire({
+          title: error.message,
+          icon: "error",
+        });
       });
   };
+
   return (
     <>
       <div className="bg-nu10 py-20">
