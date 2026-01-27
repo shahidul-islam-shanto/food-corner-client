@@ -101,9 +101,19 @@ const NavBer = () => {
                     </Link>
                   )}
                 </div>
-                <span>
-                  <FaRegUserCircle className="text-nu10 text-[32px] font-bold" />
-                </span>
+                <div className="">
+                  {user?.email ? (
+                    <img
+                      className="w-10 h-10 rounded-full"
+                      src={user?.photoURL}
+                      alt=""
+                    />
+                  ) : (
+                    <span>
+                      <FaRegUserCircle className="text-nu10 text-[32px] font-bold" />
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           </div>
