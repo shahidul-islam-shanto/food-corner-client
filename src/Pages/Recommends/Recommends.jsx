@@ -5,7 +5,7 @@ import RecommendCard from "./RecommendCard";
 const Recommends = () => {
   const [recommend, setRecommend] = useState([]);
   useEffect(() => {
-    fetch("menu.json")
+    fetch("http://localhost:5000/menu")
       .then((res) => res.json())
       .then((data) => {
         const cardRecommend = data.slice(0, 3);
