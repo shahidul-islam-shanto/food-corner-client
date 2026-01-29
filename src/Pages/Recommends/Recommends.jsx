@@ -8,7 +8,7 @@ const Recommends = () => {
     fetch("http://localhost:5000/menu")
       .then((res) => res.json())
       .then((data) => {
-        const cardRecommend = data.slice(0, 3);
+        const cardRecommend = data.slice(0, 6);
         setRecommend(cardRecommend);
       });
   }, []);

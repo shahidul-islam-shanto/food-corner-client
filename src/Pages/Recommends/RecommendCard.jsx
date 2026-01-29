@@ -1,10 +1,34 @@
 import React from "react";
+import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const RecommendCard = ({ recommendCord }) => {
   const { image, name, recipe } = recommendCord;
+  const { user } = useAuth();
 
   const handleAddToCart = (food) => {
-    console.log(food);
+    // console.log(food, user.email);
+    if (user && user.email) {
+      // todo: user created
+    } else {
+      Swal.fire({
+        title: "You are not Log In?",
+        text: "Please login to add to the card!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, log in!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+        }
+      });
+    }
   };
 
   return (
