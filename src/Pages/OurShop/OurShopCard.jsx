@@ -1,7 +1,7 @@
 import React from "react";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const OurShopCard = ({ items }) => {
   const { user } = useAuth();
@@ -12,6 +12,13 @@ const OurShopCard = ({ items }) => {
     // console.log(food, user.email);
     if (user && user.email) {
       // todo: user created
+      const cardItem = {
+        menuId: _id,
+        email: user.email,
+        name,
+        image,
+        price,
+      };
     } else {
       Swal.fire({
         title: "You are not Log In?",
