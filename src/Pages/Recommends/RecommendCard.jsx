@@ -1,12 +1,13 @@
 import React from "react";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const RecommendCard = ({ recommendCord }) => {
   const { image, name, recipe } = recommendCord;
   const { user } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleAddToCart = (food) => {
     // console.log(food, user.email);
@@ -23,7 +24,7 @@ const RecommendCard = ({ recommendCord }) => {
         confirmButtonText: "Yes, log in!",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/login");
+          navigate("/login", { state: { from: location } });
           // Swal.fire({
           //   title: "Deleted!",
           //   text: "Your file has been deleted.",

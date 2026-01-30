@@ -1,6 +1,39 @@
 import React from "react";
+import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const OurShopCard = ({ items }) => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleAddToCart = (food) => {
+    // console.log(food, user.email);
+    if (user && user.email) {
+      // todo: user created
+    } else {
+      Swal.fire({
+        title: "You are not Log In?",
+        text: "Please login to add to the card!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, log in!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+          // Swal.fire({
+          //   title: "Deleted!",
+          //   text: "Your file has been deleted.",
+          //   icon: "success",
+          // });
+        }
+      });
+    }
+  };
+
   return (
     <div key={items._id} className="col-span-4">
       <div className="bg-nu20 px-4 py-4 rounded-md w-full h-full">
@@ -17,7 +50,10 @@ const OurShopCard = ({ items }) => {
           <p className="text-nu60 font-normal h-full">{items.recipe}</p>
         </div>
         <div className="text-center">
-          <button className="px-6 py-3 border-b-2 border-nu102 hover:border-nu60 font-medium bg-nu30 hover:bg-nu60 text-nu102 duration-300 uppercase rounded-lg">
+          <button
+            onClick={() => handleAddToCart(items)}
+            className="px-6 py-3 border-b-2 border-nu102 hover:border-nu60 font-medium bg-nu30 hover:bg-nu60 text-nu102 duration-300 uppercase rounded-lg"
+          >
             add to cart
           </button>
         </div>
