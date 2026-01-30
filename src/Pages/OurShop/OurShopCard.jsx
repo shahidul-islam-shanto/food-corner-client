@@ -2,6 +2,7 @@ import React from "react";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const OurShopCard = ({ items }) => {
   const { user } = useAuth();
@@ -9,9 +10,12 @@ const OurShopCard = ({ items }) => {
   const location = useLocation();
 
   const handleAddToCart = (food) => {
+    const { _id, name, image, price } = food;
     // console.log(food, user.email);
     if (user && user.email) {
       // todo: user created
+      console.log(user.email, food);
+
       const cardItem = {
         menuId: _id,
         email: user.email,
@@ -19,6 +23,18 @@ const OurShopCard = ({ items }) => {
         image,
         price,
       };
+
+      axios.post("http://localhost:5000/cards", cardItem).then((res) => {
+        console.log(res.data);
+
+        if (res.data.insertedId) {
+          Swal.fire({
+            title: "Successfully Card Add!",
+            text: "Your file has been Add.",
+            icon: "success",
+          });
+        }
+      });
     } else {
       Swal.fire({
         title: "You are not Log In?",
