@@ -8,6 +8,7 @@ import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import CreateBoard from "../Pages/CreateBoard/CreateBoard";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import DashCard from "../Pages/Dashboard/DashCard";
 
 const router = createBrowserRouter([
   {
@@ -48,10 +49,11 @@ const router = createBrowserRouter([
     path: "dashboard",
     element: <Dashboard />,
     children: [
-     {
-
-     }
-    ]
+      {
+        path: "dashCard",
+        element: <DashCard />,
+      },
+    ],
   },
 ]);
 

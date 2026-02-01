@@ -76,7 +76,7 @@ const NavBer = () => {
 
           <div className="flex justify-between items-center gap-6">
             <div className="">
-              <Link to={""}>
+              <Link to={"/dashboard/dashCard"}>
                 <button className="btn">
                   <FaCartShopping className="text-nu10 font-bold text-[32px]" />
                   <div className="badge badge-sm badge-secondary">
