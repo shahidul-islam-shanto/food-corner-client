@@ -6,10 +6,12 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaRegUserCircle } from "react-icons/fa";
 import Logo from "../../assets/images/hero-img/logo.png";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useCards from "../../Hooks/useCards";
 
 const NavBer = () => {
   const [open, setOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  const [card] = useCards();
 
   const handleLogOut = () => {
     logOut()
@@ -75,10 +77,11 @@ const NavBer = () => {
           <div className="flex justify-between items-center gap-6">
             <div className="">
               <Link to={""}>
-                
                 <button className="btn">
                   <FaCartShopping className="text-nu10 font-bold text-[32px]" />
-                  <div className="badge badge-sm badge-secondary">0</div>
+                  <div className="badge badge-sm badge-secondary">
+                    {card.length}
+                  </div>
                 </button>
               </Link>
             </div>
