@@ -13,7 +13,7 @@ const useCards = () => {
       return res.data;
     },
   });
-  return [card];
+  return [card, refetch];
 };
 
 export default useCards;

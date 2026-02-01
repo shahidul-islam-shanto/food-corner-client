@@ -4,20 +4,20 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useCards from "../../Hooks/useCards";
 
 const OurShopCard = ({ items }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
+  const [, refetch] = useCards()
 
   const handleAddToCart = (food) => {
     const { _id, name, image, price } = food;
-    // console.log(food, user.email);
+   
     if (user && user.email) {
-      // todo: user created
-      console.log(user.email, food);
-
+      //  user created
       const cardItem = {
         menuId: _id,
         email: user.email,
@@ -35,6 +35,8 @@ const OurShopCard = ({ items }) => {
             text: "Your file has been Add.",
             icon: "success",
           });
+          // refetch card to update the items counts
+          refetch()
         }
       });
     } else {
