@@ -2,7 +2,6 @@ import React from "react";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useCards from "../../Hooks/useCards";
 

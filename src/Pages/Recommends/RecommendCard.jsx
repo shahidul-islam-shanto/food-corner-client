@@ -25,11 +25,6 @@ const RecommendCard = ({ recommendCord }) => {
       }).then((result) => {
         if (result.isConfirmed) {
           navigate("/login", { state: { from: location } });
-          // Swal.fire({
-          //   title: "Deleted!",
-          //   text: "Your file has been deleted.",
-          //   icon: "success",
-          // });
         }
       });
     }
