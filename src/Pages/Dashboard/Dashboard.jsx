@@ -1,17 +1,26 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import Logo from "../../assets/images/hero-img/logo.png";
+import { IoHomeSharp } from "react-icons/io5";
+import { ImSpoonKnife } from "react-icons/im";
+import { FaListUl } from "react-icons/fa";
+import { FaBook } from "react-icons/fa";
+import { HiUserGroup } from "react-icons/hi";
 
 const Dashboard = () => {
   return (
     <div className="">
       <div className="grid grid-cols-12 gap-6 ">
         {/* dashboard side ber */}
-        <div className="col-span-4">
-          <div className="bg-nu108 px-10 py-10">
-            <div className="">
+        <div className="col-span-3">
+          <div className="bg-nu108 px-10 py-10 h-screen">
+            <div className="mb-10">
               <div className="text-center">
-                <img className="w-18 h-18 border-2 border-nu10 bg-nu10 rounded-full " src={Logo} alt="" />
+                <img
+                  className="w-18 h-18 border-2 border-nu10 bg-nu10 rounded-full "
+                  src={Logo}
+                  alt=""
+                />
               </div>
               <div className="">
                 <h2 className="">Food Corner</h2>
@@ -20,20 +29,73 @@ const Dashboard = () => {
             </div>
 
             <ul>
+              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                <IoHomeSharp className="text-[24px]" />
+                <NavLink
+                  to={"/dashboard/dashCard"}
+                  className="text-[20px] font-medium"
+                >
+                  Admin Home
+                </NavLink>
+              </li>
+              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                <ImSpoonKnife className="text-[24px]" />
+                <NavLink
+                  to={"/dashboard/dashCard"}
+                  className="text-[20px] font-medium"
+                >
+                  Add Items
+                </NavLink>
+              </li>
+              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                <FaListUl className="text-[24px]" />
+                <NavLink
+                  to={"/dashboard/dashCard"}
+                  className="text-[20px] font-medium"
+                >
+                  Manage Items
+                </NavLink>
+              </li>
+              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                <FaBook className="text-[24px]" />
+                <NavLink
+                  to={"/dashboard/dashCard"}
+                  className="text-[20px] font-medium"
+                >
+                  Manage Bookings
+                </NavLink>
+              </li>
+              <li className=" flex items-center gap-2 hover:text-nu10 duration-300">
+                <HiUserGroup className="text-[24px]" />
+                <NavLink
+                  to={"/dashboard/dashCard"}
+                  className="text-[20px] font-medium"
+                >
+                  All Users
+                </NavLink>
+              </li>
+              <span className="mb-10 border-b-2 pb-8"></span>
               <li>
-                <NavLink to={"/dashboard/dashCard"}>My Card</NavLink>
+                <NavLink
+                  to={"/dashboard/dashCard"}
+                  className="text-[20px] font-medium"
+                >
+                  Manage items
+                </NavLink>
               </li>
               <li>
-                <NavLink to={"/dashboard/dashCard"}>My App Home</NavLink>
-              </li>
-              <li>
-                <NavLink to={"/dashboard/dashCard"}>User Home</NavLink>
+                <NavLink
+                  to={"/dashboard/dashCard"}
+                  className="text-[20px] font-medium"
+                >
+                  Manage items
+                </NavLink>
               </li>
             </ul>
           </div>
         </div>
         {/* dashboard Main  */}
-        <div className="col-span-8">
+        <div className="col-span-9">
           <div className="py-10">
             <Outlet />
           </div>
