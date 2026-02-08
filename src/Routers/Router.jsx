@@ -10,6 +10,7 @@ import CreateBoard from "../Pages/CreateBoard/CreateBoard";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashCard from "../Pages/Dashboard/DashCard";
 import AdminHome from "../Pages/Dashboard/AdminHome";
+import AddItems from "../Pages/Dashboard/AddItems";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "adminHome",
         element: <AdminHome />,
+      },
+      {
+        path: "addItems",
+        element: <AddItems />,
       },
     ],
   },
