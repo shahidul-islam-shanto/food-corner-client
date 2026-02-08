@@ -14,6 +14,8 @@ import AddItems from "../Pages/Dashboard/AddItems";
 import ManageItems from "../Pages/Dashboard/ManageItems";
 import AllUsers from "../Pages/Dashboard/AllUsers";
 import Menu from "../Pages/Dashboard/Menu";
+import Shop from "../Pages/Dashboard/Shop";
+import Contact from "../Pages/Dashboard/Contact";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +79,14 @@ const router = createBrowserRouter([
       {
         path: "menu",
         element: <Menu />,
+      },
+      {
+        path: "shop",
+        element: <Shop />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
       },
     ],
   },

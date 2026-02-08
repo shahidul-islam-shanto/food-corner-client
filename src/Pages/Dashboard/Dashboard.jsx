@@ -91,7 +91,7 @@ const Dashboard = () => {
               <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                 <IoMenu className="text-[24px]" />
                 <NavLink
-                  to={"/dashboard/dashCard"}
+                  to={"/dashboard/menu"}
                   className="text-[20px] font-medium uppercase"
                 >
                   Menu
@@ -100,7 +100,7 @@ const Dashboard = () => {
               <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                 <FaBagShopping className="text-[24px]" />
                 <NavLink
-                  to={"/dashboard/dashCard"}
+                  to={"/dashboard/shop"}
                   className="text-[20px] font-medium uppercase"
                 >
                   Shop
@@ -109,7 +109,7 @@ const Dashboard = () => {
               <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                 <MdEmail className="text-[24px]" />
                 <NavLink
-                  to={"/dashboard/dashCard"}
+                  to={"/dashboard/contact"}
                   className="text-[20px] font-medium uppercase"
                 >
                   Contact
