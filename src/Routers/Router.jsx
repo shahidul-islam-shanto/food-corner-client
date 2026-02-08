@@ -11,6 +11,9 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashCard from "../Pages/Dashboard/DashCard";
 import AdminHome from "../Pages/Dashboard/AdminHome";
 import AddItems from "../Pages/Dashboard/AddItems";
+import ManageItems from "../Pages/Dashboard/ManageItems";
+import AllUsers from "../Pages/Dashboard/AllUsers";
+import Menu from "../Pages/Dashboard/Menu";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +65,18 @@ const router = createBrowserRouter([
       {
         path: "addItems",
         element: <AddItems />,
+      },
+      {
+        path: "manageItems",
+        element: <ManageItems />,
+      },
+      {
+        path: "allUsers",
+        element: <AllUsers />,
+      },
+      {
+        path: "menu",
+        element: <Menu />,
       },
     ],
   },

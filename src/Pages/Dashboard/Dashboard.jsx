@@ -6,6 +6,9 @@ import { ImSpoonKnife } from "react-icons/im";
 import { FaListUl } from "react-icons/fa";
 import { FaBook } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi";
+import { IoMenu } from "react-icons/io5";
+import { FaBagShopping } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
 const Dashboard = () => {
   return (
@@ -50,7 +53,7 @@ const Dashboard = () => {
               <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                 <FaListUl className="text-[24px]" />
                 <NavLink
-                  to={"/dashboard/dashCard"}
+                  to={"/dashboard/manageItems"}
                   className="text-[20px] font-medium uppercase"
                 >
                   Manage Items
@@ -68,7 +71,7 @@ const Dashboard = () => {
               <li className=" flex items-center gap-2 hover:text-nu10 duration-300">
                 <HiUserGroup className="text-[24px]" />
                 <NavLink
-                  to={"/dashboard/dashCard"}
+                  to={"/dashboard/allUsers"}
                   className="text-[20px] font-medium uppercase"
                 >
                   All Users
@@ -85,12 +88,31 @@ const Dashboard = () => {
                   Home
                 </NavLink>
               </li>
-              <li>
+              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                <IoMenu className="text-[24px]" />
                 <NavLink
                   to={"/dashboard/dashCard"}
                   className="text-[20px] font-medium uppercase"
                 >
-                  Manage items
+                  Menu
+                </NavLink>
+              </li>
+              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                <FaBagShopping className="text-[24px]" />
+                <NavLink
+                  to={"/dashboard/dashCard"}
+                  className="text-[20px] font-medium uppercase"
+                >
+                  Shop
+                </NavLink>
+              </li>
+              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                <MdEmail className="text-[24px]" />
+                <NavLink
+                  to={"/dashboard/dashCard"}
+                  className="text-[20px] font-medium uppercase"
+                >
+                  Contact
                 </NavLink>
               </li>
             </ul>
