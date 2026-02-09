@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import Logo from "../../assets/images/hero-img/logo.png";
 import { IoHomeSharp } from "react-icons/io5";
 import { ImSpoonKnife } from "react-icons/im";
@@ -18,17 +18,17 @@ const Dashboard = () => {
         <div className="col-span-3">
           <div className="bg-nu108 px-10 py-10 h-screen">
             <div className="mb-10">
-              <div className="text-center">
-                <img
-                  className="w-18 h-18 border-2 border-nu10 bg-nu10 rounded-full "
-                  src={Logo}
-                  alt=""
-                />
-              </div>
-              <div className="">
-                <h2 className="">Food Corner</h2>
-                <h4 className="">Restaurant</h4>
-              </div>
+              <Link to={"/"}>
+                <div className="flex items-center text-center gap-2 mb-4">
+                  <img
+                    className="w-12 h-12 border-2 border-nu10 bg-nu10 rounded-full "
+                    src={Logo}
+                    alt=""
+                  />
+                  <h2 className="">Food Corner</h2>
+                </div>
+              </Link>
+              <h4 className="">Restaurant</h4>
             </div>
 
             <ul>
