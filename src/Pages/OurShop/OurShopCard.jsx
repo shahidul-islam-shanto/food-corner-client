@@ -10,11 +10,11 @@ const OurShopCard = ({ items }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
-  const [, refetch] = useCards()
+  const [, refetch] = useCards();
 
   const handleAddToCart = (food) => {
     const { _id, name, image, price } = food;
-   
+
     if (user && user.email) {
       //  user created
       const cardItem = {
@@ -25,7 +25,8 @@ const OurShopCard = ({ items }) => {
         price,
       };
 
-      axiosSecure.post("/cards", cardItem).then((res) => {
+      axiosSecure.post("/cards", cardItem)
+      .then((res) => {
         console.log(res.data);
 
         if (res.data.insertedId) {
@@ -35,7 +36,7 @@ const OurShopCard = ({ items }) => {
             icon: "success",
           });
           // refetch card to update the items counts
-          refetch()
+          refetch();
         }
       });
     } else {

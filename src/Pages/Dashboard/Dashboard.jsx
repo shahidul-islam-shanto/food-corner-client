@@ -62,7 +62,7 @@ const Dashboard = () => {
               <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                 <FaBook className="text-[24px]" />
                 <NavLink
-                  to={"/dashboard/dashCard"}
+                  to={"/dashboard/manageItems"}
                   className="text-[20px] font-medium uppercase"
                 >
                   Manage Bookings

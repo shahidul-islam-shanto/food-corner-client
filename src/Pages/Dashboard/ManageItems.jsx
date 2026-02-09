@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import useCards from "../../Hooks/useCards";
 
 const ManageItems = () => {
+  const [cart] = useCards();
   return (
     <div>
-      <h1>this is a manage items</h1>
+      <div className="">
+        <h1>Manage Items: {cart.length}</h1>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ManageItems
+export default ManageItems;
