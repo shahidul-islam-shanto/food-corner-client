@@ -25,8 +25,7 @@ const OurShopCard = ({ items }) => {
         price,
       };
 
-      axiosSecure.post("/cards", cardItem)
-      .then((res) => {
+      axiosSecure.post("/carts", cardItem).then((res) => {
         console.log(res.data);
 
         if (res.data.insertedId) {
