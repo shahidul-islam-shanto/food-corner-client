@@ -6,8 +6,10 @@ import LoginFrom from "../../assets/images/authentication/authentication1.png";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
+  const axiosPublic = useAxiosPublic();
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -25,11 +27,21 @@ const Register = () => {
         return updateUserProfile(name, photoURL);
       })
       .then(() => {
-        Swal.fire({
-          title: "Successfully Sign Up!",
-          icon: "success",
+        const userInfo = {
+          name: name,
+          email: email,
+        };
+        // user data base a post
+        axiosPublic.post("/users", userInfo).then((res) => {
+          if (res.data.insertedId) {
+            console.log("user add a data base");
+            Swal.fire({
+              title: "Successfully Sign Up!",
+              icon: "success",
+            });
+            navigate("/");
+          }
         });
-        navigate("/");
       })
       .catch((error) => {
         console.error(error);
