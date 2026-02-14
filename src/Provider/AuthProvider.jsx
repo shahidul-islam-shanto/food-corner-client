@@ -5,6 +5,8 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 
@@ -13,6 +15,8 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const googleProvider = new GoogleAuthProvider();
 
   // create user site
   const createUser = (name, email, password, photoURL) => {
@@ -30,6 +34,12 @@ const AuthProvider = ({ children }) => {
   const singInEmailPassword = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // google sing in
+  const googleSinIn = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
   };
 
   //   log out user
@@ -65,6 +75,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     loading,
     updateUserProfile,
+    googleSinIn,
   };
 
   return (

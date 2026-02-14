@@ -10,7 +10,8 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
   const axiosPublic = useAxiosPublic();
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, googleSinIn } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
@@ -50,6 +51,12 @@ const Register = () => {
           icon: "error",
         });
       });
+  };
+
+  const handleGoogleSingIn = () => {
+    googleSinIn().then((result) => {
+      console.log(result);
+    });
   };
 
   return (
@@ -142,9 +149,11 @@ const Register = () => {
                         <span className="px-3 py-3 bg-nu20 rounded-full cursor-pointer">
                           <FaLinkedinIn />
                         </span>
-                        <span className="px-3 py-3 bg-nu20 rounded-full cursor-pointer">
-                          <FaGoogle />
-                        </span>
+                        <button onClick={handleGoogleSingIn}>
+                          <span className="px-3 py-3 bg-nu20 rounded-full cursor-pointer">
+                            <FaGoogle />
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div className="text-center">
