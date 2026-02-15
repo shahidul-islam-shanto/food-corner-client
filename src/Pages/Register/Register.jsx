@@ -57,6 +57,7 @@ const Register = () => {
   const handleGoogleSingIn = () => {
     googleSinIn().then((result) => {
       console.log(result);
+      // google sing up save this database
       const userInfo = {
         email: result.user?.email,
         name: result.user?.displayName,
