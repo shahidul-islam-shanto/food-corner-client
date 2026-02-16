@@ -9,13 +9,19 @@ import PrivateRoute from "./PrivateRoute";
 import CreateBoard from "../Pages/CreateBoard/CreateBoard";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashCard from "../Pages/Dashboard/DashCard";
-import AdminHome from "../Pages/Dashboard/AdminHome";
-import AddItems from "../Pages/Dashboard/AddItems";
-import ManageItems from "../Pages/Dashboard/ManageItems";
-import AllUsers from "../Pages/Dashboard/AllUsers";
+import AdminHome from "../Pages/Dashboard/PaymentHistory";
+import AddItems from "../Pages/Dashboard/Reservation";
+import ManageItems from "../Pages/Dashboard/UserHome";
+import AllUsers from "../Pages/Dashboard/MyCart";
 import Menu from "../Pages/Dashboard/Menu";
 import Shop from "../Pages/Dashboard/Shop";
 import Contact from "../Pages/Dashboard/Contact";
+import UserHome from "../Pages/Dashboard/PaymentHistory";
+import Reservation from "../Pages/Dashboard/Reservation";
+import PaymentHistory from "../Pages/Dashboard/UserHome";
+import MyCart from "../Pages/Dashboard/MyCart";
+import AddReview from "../Pages/Dashboard/AddReview";
+import MyBooking from "../Pages/Dashboard/MyBooking";
 
 const router = createBrowserRouter([
   {
@@ -65,20 +71,28 @@ const router = createBrowserRouter([
         element: <DashCard />,
       },
       {
-        path: "adminHome",
-        element: <AdminHome />,
+        path: "userHome",
+        element: <UserHome />,
       },
       {
-        path: "addItems",
-        element: <AddItems />,
+        path: "reservation",
+        element: <Reservation />,
       },
       {
-        path: "manageItems",
-        element: <ManageItems />,
+        path: "paymentHistory",
+        element: <PaymentHistory />,
       },
       {
-        path: "allUsers",
-        element: <AllUsers />,
+        path: "myCart",
+        element: <MyCart />,
+      },
+      {
+        path: "addReview",
+        element: <AddReview />,
+      },
+      {
+        path: "myBooking",
+        element: <MyBooking />,
       },
       {
         path: "menu",

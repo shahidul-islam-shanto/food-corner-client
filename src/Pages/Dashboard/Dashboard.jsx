@@ -35,46 +35,55 @@ const Dashboard = () => {
               <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                 <IoHomeSharp className="text-[24px]" />
                 <NavLink
-                  to={"/dashboard/adminHome"}
+                  to={"/dashboard/paymentHistory"}
                   className="text-[20px] font-medium uppercase"
                 >
-                  Admin Home
+                  User Home
                 </NavLink>
               </li>
               <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                 <ImSpoonKnife className="text-[24px]" />
                 <NavLink
-                  to={"/dashboard/addItems"}
+                  to={"/dashboard/reservation"}
                   className="text-[20px] font-medium uppercase"
                 >
-                  Add Items
+                  Reservation
                 </NavLink>
               </li>
               <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                 <FaListUl className="text-[24px]" />
                 <NavLink
-                  to={"/dashboard/manageItems"}
+                  to={"/dashboard/userHome"}
                   className="text-[20px] font-medium uppercase"
                 >
-                  Manage Items
+                  Payment History
                 </NavLink>
               </li>
               <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                 <FaBook className="text-[24px]" />
                 <NavLink
-                  to={"/dashboard/manageItems"}
+                  to={"/dashboard/myCart"}
                   className="text-[20px] font-medium uppercase"
                 >
-                  Manage Bookings
+                  My Cart
+                </NavLink>
+              </li>
+              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                <FaBook className="text-[24px]" />
+                <NavLink
+                  to={"/dashboard/addReview"}
+                  className="text-[20px] font-medium uppercase"
+                >
+                  Add Review
                 </NavLink>
               </li>
               <li className=" flex items-center gap-2 hover:text-nu10 duration-300">
                 <HiUserGroup className="text-[24px]" />
                 <NavLink
-                  to={"/dashboard/allUsers"}
+                  to={"/dashboard/myBooking"}
                   className="text-[20px] font-medium uppercase"
                 >
-                  All Users
+                  My Booking
                 </NavLink>
               </li>
               <span className="mb-10 border-b-2 pb-8"></span>

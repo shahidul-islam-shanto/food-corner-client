@@ -5,7 +5,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
-const ManageItems = () => {
+const UserHome = () => {
   const [cart, refetch] = useCards();
   const secureAxios = useAxiosSecure();
   const totalPrice = cart.reduce((total, items) => {
@@ -98,4 +98,4 @@ const ManageItems = () => {
   );
 };
 
-export default ManageItems;
+export default UserHome;

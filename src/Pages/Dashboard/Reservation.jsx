@@ -1,6 +1,6 @@
 import React from "react";
 
-const AddItems = () => {
+const Reservation = () => {
   return (
     <div>
       <h1>this is a Add Items</h1>
@@ -8,4 +8,4 @@ const AddItems = () => {
   );
 };
 
-export default AddItems;
+export default Reservation;
