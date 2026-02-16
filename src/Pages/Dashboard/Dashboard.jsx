@@ -11,6 +11,8 @@ import { FaBagShopping } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 const Dashboard = () => {
+  const isAdmin = true;
+
   return (
     <div className="">
       <div className="grid grid-cols-12 gap-6 ">
@@ -32,98 +34,188 @@ const Dashboard = () => {
             </div>
 
             <ul>
-              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
-                <IoHomeSharp className="text-[24px]" />
-                <NavLink
-                  to={"/dashboard/paymentHistory"}
-                  className="text-[20px] font-medium uppercase"
-                >
-                  User Home
-                </NavLink>
-              </li>
-              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
-                <ImSpoonKnife className="text-[24px]" />
-                <NavLink
-                  to={"/dashboard/reservation"}
-                  className="text-[20px] font-medium uppercase"
-                >
-                  Reservation
-                </NavLink>
-              </li>
-              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
-                <FaListUl className="text-[24px]" />
-                <NavLink
-                  to={"/dashboard/userHome"}
-                  className="text-[20px] font-medium uppercase"
-                >
-                  Payment History
-                </NavLink>
-              </li>
-              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
-                <FaBook className="text-[24px]" />
-                <NavLink
-                  to={"/dashboard/myCart"}
-                  className="text-[20px] font-medium uppercase"
-                >
-                  My Cart
-                </NavLink>
-              </li>
-              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
-                <FaBook className="text-[24px]" />
-                <NavLink
-                  to={"/dashboard/addReview"}
-                  className="text-[20px] font-medium uppercase"
-                >
-                  Add Review
-                </NavLink>
-              </li>
-              <li className=" flex items-center gap-2 hover:text-nu10 duration-300">
-                <HiUserGroup className="text-[24px]" />
-                <NavLink
-                  to={"/dashboard/myBooking"}
-                  className="text-[20px] font-medium uppercase"
-                >
-                  My Booking
-                </NavLink>
-              </li>
-              <span className="mb-10 border-b-2 pb-8"></span>
+              {isAdmin ? (
+                <>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <IoHomeSharp className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/adminHome"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Admin Home
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <ImSpoonKnife className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/reservation"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      add items
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <FaListUl className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/userHome"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      manage items
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <FaBook className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/myCart"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Manage bookings
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <FaBook className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/addReview"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      all users
+                    </NavLink>
+                  </li>
+                  <span className="mb-10 border-b-2 pb-8"></span>
 
-              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
-                <IoHomeSharp className="text-[24px]" />
-                <NavLink
-                  to={"/dashboard/dashCard"}
-                  className="text-[20px] font-medium uppercase"
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
-                <IoMenu className="text-[24px]" />
-                <NavLink
-                  to={"/dashboard/menu"}
-                  className="text-[20px] font-medium uppercase"
-                >
-                  Menu
-                </NavLink>
-              </li>
-              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
-                <FaBagShopping className="text-[24px]" />
-                <NavLink
-                  to={"/dashboard/shop"}
-                  className="text-[20px] font-medium uppercase"
-                >
-                  Shop
-                </NavLink>
-              </li>
-              <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
-                <MdEmail className="text-[24px]" />
-                <NavLink
-                  to={"/dashboard/contact"}
-                  className="text-[20px] font-medium uppercase"
-                >
-                  Contact
-                </NavLink>
-              </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <IoHomeSharp className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/dashCard"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Home
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <IoMenu className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/menu"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Menu
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <FaBagShopping className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/shop"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Shop
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <MdEmail className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/contact"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Contact
+                    </NavLink>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <IoHomeSharp className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/paymentHistory"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      User Home
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <ImSpoonKnife className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/reservation"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Reservation
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <FaListUl className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/userHome"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Payment History
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <FaBook className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/myCart"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      My Cart
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <FaBook className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/addReview"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Add Review
+                    </NavLink>
+                  </li>
+                  <li className=" flex items-center gap-2 hover:text-nu10 duration-300">
+                    <HiUserGroup className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/myBooking"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      My Booking
+                    </NavLink>
+                  </li>
+                  <span className="mb-10 border-b-2 pb-8"></span>
+
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <IoHomeSharp className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/dashCard"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Home
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <IoMenu className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/menu"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Menu
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <FaBagShopping className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/shop"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Shop
+                    </NavLink>
+                  </li>
+                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <MdEmail className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/contact"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      Contact
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

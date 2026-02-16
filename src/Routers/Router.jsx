@@ -106,6 +106,12 @@ const router = createBrowserRouter([
         path: "contact",
         element: <Contact />,
       },
+
+      // admin user
+      {
+        path: "adminHome",
+        element: <AdminHome />,
+      },
     ],
   },
 ]);
