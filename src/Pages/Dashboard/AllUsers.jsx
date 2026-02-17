@@ -1,16 +1,46 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { HiUserGroup } from "react-icons/hi2";
+import { MdDelete } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: users = [] } = useQuery({
+
+  const { refetch, data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
       return res.data;
     },
   });
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/users/${id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
   return (
     <div className="">
       <div className="">
@@ -23,6 +53,7 @@ const AllUsers = () => {
                 {/* head */}
                 <thead>
                   <tr>
+                    <th></th>
                     <th className="text-nu60 text-[20px]">NAME</th>
                     <th className="text-nu60 text-[20px]">EMAIL</th>
                     <th className="text-nu60 text-[20px]">ROLE</th>
@@ -32,29 +63,31 @@ const AllUsers = () => {
                 <tbody>
                   {/* row 1 */}
 
-                  {users.map((items) => (
+                  {users.map((items, index) => (
                     <tr>
                       <th>
+                        <p>{index + 1}</p>
+                      </th>
+                      <th>
                         <div className="">
-                          <h5>{items.displayName}</h5>
+                          <h5>{items.name}</h5>
                         </div>
                       </th>
                       <td>
-                        <div>
-                          <h4 className="font-bold">{items.email}</h4>
-                        </div>
+                        <h6 className="font-bold">{items.email}</h6>
                       </td>
                       <td>
-                        Zemlak, Daniel and Leannon
-                        <br />
-                        <span className="badge badge-ghost badge-sm">
-                          Desktop Support Technician
-                        </span>
+                        <button className="px-3 py-3 bg-nu102 rounded-lg ">
+                          <HiUserGroup className="text-nu10 text-[20px]" />
+                        </button>
                       </td>
-                      <td>Purple</td>
+
                       <th>
-                        <button className="btn btn-ghost btn-xs">
-                          details
+                        <button
+                          onClick={() => handleDelete(items._id)}
+                          className="px-3 py-3 bg-nu109 rounded-lg"
+                        >
+                          <MdDelete className="text-nu10 text-[20px]" />
                         </button>
                       </th>
                     </tr>
