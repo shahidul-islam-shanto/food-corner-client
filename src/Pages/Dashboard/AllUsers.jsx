@@ -41,6 +41,10 @@ const AllUsers = () => {
       }
     });
   };
+
+  const handleMakeAdmin = (user) => {
+    //   user update
+  };
   return (
     <div className="">
       <div className="">
@@ -77,7 +81,10 @@ const AllUsers = () => {
                         <h6 className="font-bold">{items.email}</h6>
                       </td>
                       <td>
-                        <button className="px-3 py-3 bg-nu102 rounded-lg ">
+                        <button
+                          onClick={() => handleMakeAdmin(items)}
+                          className="px-3 py-3 bg-nu102 rounded-lg "
+                        >
                           <HiUserGroup className="text-nu10 text-[20px]" />
                         </button>
                       </td>
