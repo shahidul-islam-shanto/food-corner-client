@@ -39,15 +39,6 @@ const Dashboard = () => {
                   <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                     <IoHomeSharp className="text-[24px]" />
                     <NavLink
-                      to={"/dashboard/dashCard"}
-                      className="text-[20px] font-medium uppercase"
-                    >
-                      Admin Home
-                    </NavLink>
-                  </li>
-                  <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
-                    <IoHomeSharp className="text-[24px]" />
-                    <NavLink
                       to={"/dashboard/adminHome"}
                       className="text-[20px] font-medium uppercase"
                     >
@@ -60,7 +51,7 @@ const Dashboard = () => {
                       to={"/dashboard/reservation"}
                       className="text-[20px] font-medium uppercase"
                     >
-                      add items
+                      Add Items
                     </NavLink>
                   </li>
                   <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
@@ -69,7 +60,7 @@ const Dashboard = () => {
                       to={"/dashboard/userHome"}
                       className="text-[20px] font-medium uppercase"
                     >
-                      manage items
+                      Manage Items
                     </NavLink>
                   </li>
                   <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
@@ -78,16 +69,16 @@ const Dashboard = () => {
                       to={"/dashboard/myCart"}
                       className="text-[20px] font-medium uppercase"
                     >
-                      Manage bookings
+                      Manage Bookings
                     </NavLink>
                   </li>
                   <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                     <FaBook className="text-[24px]" />
                     <NavLink
-                      to={"/dashboard/addReview"}
+                      to={"/dashboard/allUsers"}
                       className="text-[20px] font-medium uppercase"
                     >
-                      all users
+                      All Users
                     </NavLink>
                   </li>
                 </>
