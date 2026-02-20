@@ -44,6 +44,17 @@ const AllUsers = () => {
 
   const handleMakeAdmin = (user) => {
     //   user update
+    axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        Swal.fire({
+          title: `${user.name} is an Admin Now`,
+          icon: "success",
+          draggable: true,
+        });
+      }
+    });
   };
   return (
     <div className="">
@@ -81,12 +92,16 @@ const AllUsers = () => {
                         <h6 className="font-bold">{items.email}</h6>
                       </td>
                       <td>
-                        <button
-                          onClick={() => handleMakeAdmin(items)}
-                          className="px-3 py-3 bg-nu102 rounded-lg "
-                        >
-                          <HiUserGroup className="text-nu10 text-[20px]" />
-                        </button>
+                        {users.role === "admin" ? (
+                          "Admin"
+                        ) : (
+                          <button
+                            onClick={() => handleMakeAdmin(items)}
+                            className="px-3 py-3 bg-nu102 rounded-lg "
+                          >
+                            <HiUserGroup className="text-nu10 text-[20px]" />
+                          </button>
+                        )}
                       </td>
 
                       <th>
