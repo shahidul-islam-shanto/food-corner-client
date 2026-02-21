@@ -9,13 +9,14 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const axiosPublic = useAxiosPublic();
   const googleProvider = new GoogleAuthProvider();
 
   // create user site
@@ -61,6 +62,12 @@ const AuthProvider = ({ children }) => {
       const userEmail = allUser?.email || allUser?.email;
       const loginUser = { email: userEmail };
       setUser(loginUser);
+      if (allUser) {
+        // get token and store client
+        axiosPublic.post("jwt")
+      } else {
+        // do something
+      }
       setLoading(false);
     });
     return () => {

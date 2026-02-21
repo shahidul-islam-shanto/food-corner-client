@@ -92,7 +92,7 @@ const AllUsers = () => {
                         <h6 className="font-bold">{items.email}</h6>
                       </td>
                       <td>
-                        {users.role === "admin" ? (
+                        {items.role === "admin" ? (
                           "Admin"
                         ) : (
                           <button
