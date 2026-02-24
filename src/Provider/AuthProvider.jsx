@@ -61,12 +61,20 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (allUser) => {
       const userEmail = allUser?.email || allUser?.email;
       const loginUser = { email: userEmail };
+
       setUser(loginUser);
       if (allUser) {
         // get token and store client
-        axiosPublic.post("jwt")
+        // const userLogin = { email: allUser.email };
+        axiosPublic.post("/jwt", loginUser).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
+          }
+        });
       } else {
         // do something
+
+        localStorage.removeItem("access-token");
       }
       setLoading(false);
     });
