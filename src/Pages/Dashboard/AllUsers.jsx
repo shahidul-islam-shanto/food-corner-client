@@ -10,11 +10,8 @@ const AllUsers = () => {
   const { refetch, data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/users", {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("access-token")}`,
-        },
-      });
+      console.log(localStorage.getItem("access-token"));
+      const res = await axiosSecure.get("/users");
       return res.data;
     },
   });
@@ -82,7 +79,7 @@ const AllUsers = () => {
                   {/* row 1 */}
 
                   {users.map((items, index) => (
-                    <tr>
+                    <tr key={index}>
                       <th>
                         <p>{index + 1}</p>
                       </th>
