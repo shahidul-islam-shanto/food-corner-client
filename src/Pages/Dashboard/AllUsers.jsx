@@ -12,7 +12,7 @@ const AllUsers = () => {
     queryFn: async () => {
       const res = await axiosSecure.get("/users", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+          authorization: `Bearer ${localStorage.getItem("access-token")}`,
         },
       });
       return res.data;
@@ -47,8 +47,7 @@ const AllUsers = () => {
 
   const handleMakeAdmin = (user) => {
     //   user update
-    axiosSecure.patch(`/users/admin/${user._id}`)
-    .then((res) => {
+    axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
       console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
