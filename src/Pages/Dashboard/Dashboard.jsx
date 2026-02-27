@@ -9,9 +9,10 @@ import { HiUserGroup } from "react-icons/hi";
 import { IoMenu } from "react-icons/io5";
 import { FaBagShopping } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import useAdmin from "../../Hooks/useAdmin";
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="">
