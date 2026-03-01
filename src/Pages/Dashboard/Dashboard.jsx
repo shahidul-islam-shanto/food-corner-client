@@ -49,7 +49,7 @@ const Dashboard = () => {
                   <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                     <ImSpoonKnife className="text-[24px]" />
                     <NavLink
-                      to={"/dashboard/reservation"}
+                      to={"/dashboard/addItems"}
                       className="text-[20px] font-medium uppercase"
                     >
                       Add Items
