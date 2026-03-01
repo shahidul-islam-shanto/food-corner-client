@@ -10,7 +10,6 @@ import CreateBoard from "../Pages/CreateBoard/CreateBoard";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashCard from "../Pages/Dashboard/DashCard";
 import AdminHome from "../Pages/Dashboard/PaymentHistory";
-import AddItems from "../Pages/Dashboard/Reservation";
 import ManageItems from "../Pages/Dashboard/UserHome";
 import Menu from "../Pages/Dashboard/Menu";
 import Shop from "../Pages/Dashboard/Shop";
@@ -22,6 +21,7 @@ import MyCart from "../Pages/Dashboard/MyCart";
 import AddReview from "../Pages/Dashboard/AddReview";
 import MyBooking from "../Pages/Dashboard/MyBooking";
 import AllUsers from "../Pages/Dashboard/AllUsers";
+import AddItems from "../Pages/Dashboard/AddItems";
 
 const router = createBrowserRouter([
   {
@@ -115,6 +115,10 @@ const router = createBrowserRouter([
       {
         path: "allUsers",
         element: <AllUsers />,
+      },
+      {
+        path: "addItems",
+        element: <AddItems />,
       },
     ],
   },
