@@ -3,7 +3,7 @@ import SwiperSliderHero from "../SwiperSliderHero/SwiperSliderHero";
 
 const Hero = () => {
   return (
-    <div>
+    <div >
       <SwiperSliderHero />
     </div>
   );
