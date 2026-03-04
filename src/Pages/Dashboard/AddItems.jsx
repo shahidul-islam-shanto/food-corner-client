@@ -3,8 +3,8 @@ import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import Select from "react-select";
 
 const AddItems = () => {
-  const [selectedOption1, setSelectedOption1] = useState(null);
-  const [selectedOption2, setSelectedOption2] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [text, setText] = useState("");
 
   const options = [
     { value: "apple", label: "Apple" },
@@ -36,36 +36,60 @@ const AddItems = () => {
                           type="email"
                           name="email"
                           placeholder="Recipe name"
-                          className="w-full px-3 py-3 mb-4 mt-2  placeholder:text-nu60 rounded-xl bg-nu10   outline-none"
+                          className="w-full px-3 py-3 mb-4 mt-2 placeholder:text-nu60 rounded-xl bg-nu10"
                         />
                       </div>
                       <div className="flex items-center gap-4">
                         <div className="">
                           <label htmlFor="name" className="font-semibold">
-                            Recipe name*
+                            Category*
                           </label>
-                          <div className="w-88">
+                          <div className="w-88 mt-2">
                             <Select
                               options={options}
-                              value={selectedOption1}
-                              onChange={setSelectedOption1}
-                              placeholder="Select a fruit"
+                              value={selectedOption}
+                              onChange={setSelectedOption}
+                              placeholder="Category"
+                              className="w-full px-3 py-2 mb-4 mt-2 placeholder:text-nu60 rounded-xl bg-nu10"
                             />
                           </div>
                         </div>
                         <div className="">
                           <label htmlFor="name" className="font-semibold">
-                            Recipe name*
+                            Price*
                           </label>
-                          <div className="w-88" >
-                            <Select
-                              options={options}
-                              value={selectedOption2}
-                              onChange={setSelectedOption2}
-                              placeholder="Select a fruit"
-                            />
-                          </div>
+                          <input
+                            type="number"
+                            name="number"
+                            placeholder="Price"
+                            className="w-full px-3 py-3 mb-4 mt-2 placeholder:text-nu60 rounded-xl bg-nu10"
+                          />
                         </div>
+                      </div>
+                      <div className="">
+                        <label htmlFor="name" className="font-semibold">
+                          Recipe Details*
+                        </label>
+                        <textarea
+                          className="w-full px-3 py-4 mt-2 rounded-lg bg-nu10"
+                          rows="6"
+                          placeholder="Recipe Details"
+                          value={text}
+                          onChange={(e) => setText(e.target.value)}
+                        />
+                      </div>
+                      <div className="mb-4">
+                        <label className="block mb-2 font-medium">
+                          Upload File
+                        </label>
+                        <input
+                          type="file"
+                          onChange={(e) => setFile(e.target.files[0])}
+                          className="bg-nu10  px-4 py-3"
+                        />
+                      </div>
+                      <div className="">
+                        <button className="px-4 py-3 bg-nu100 text-nu10 font-semibold rounded-lg">Add Item</button>
                       </div>
                     </form>
                   </div>
