@@ -3,8 +3,8 @@ import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import Select from "react-select";
 
 const AddItems = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [text, setText] = useState("");
+  // const [selectedOption, setSelectedOption] = useState(null);
+  // const [text, setText] = useState("");
 
   const options = [
     { value: "Salad", label: "Salad" },
@@ -13,6 +13,10 @@ const AddItems = () => {
     { value: "Dessert", label: "Dessert" },
     { value: "Drink", label: "Drink" },
   ];
+
+  const handleFormArea = (e) =>{
+    
+  }
   return (
     <>
       <div className="">
@@ -35,8 +39,8 @@ const AddItems = () => {
                           Recipe name*
                         </label>
                         <input
-                          type="email"
-                          name="email"
+                          type="text"
+                          name="name"
                           placeholder="Recipe name"
                           className="w-full px-3 py-3 mb-4 mt-2 placeholder:text-nu60 rounded-xl bg-nu10"
                         />
@@ -49,8 +53,7 @@ const AddItems = () => {
                           <div className="w-88 mt-2">
                             <Select
                               options={options}
-                              value={selectedOption}
-                              onChange={setSelectedOption}
+                              name="select"
                               placeholder="Category"
                               className="w-full px-3 py-2 mb-4 mt-2 placeholder:text-nu60 rounded-xl bg-nu10"
                             />
@@ -62,7 +65,7 @@ const AddItems = () => {
                           </label>
                           <input
                             type="number"
-                            name="number"
+                            name="price"
                             placeholder="Price"
                             className="w-full px-3 py-3 mb-4 mt-2 placeholder:text-nu60 rounded-xl bg-nu10"
                           />
@@ -76,8 +79,8 @@ const AddItems = () => {
                           className="w-full px-3 py-4 mt-2 rounded-lg bg-nu10"
                           rows="6"
                           placeholder="Recipe Details"
-                          value={text}
-                          onChange={(e) => setText(e.target.value)}
+                          name="text"
+                         
                         />
                       </div>
                       <div className="mb-4">
@@ -86,7 +89,7 @@ const AddItems = () => {
                         </label>
                         <input
                           type="file"
-                          onChange={(e) => setFile(e.target.files[0])}
+                          name="file"
                           className="bg-nu10  px-4 py-3"
                         />
                       </div>
