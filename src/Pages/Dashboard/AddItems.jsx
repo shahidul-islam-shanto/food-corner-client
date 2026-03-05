@@ -14,9 +14,19 @@ const AddItems = () => {
     { value: "Drink", label: "Drink" },
   ];
 
-  const handleFormArea = (e) =>{
-    
-  }
+  const handleFormArea = (e) => {
+    e.preventDefault();
+    console.log("this is from");
+    const from = e.target;
+    const name = from.name.value;
+    const select = from.select.value;
+    const price = from.price.value;
+    const file = from.file.value;
+
+    const allFile = { name, select, price, file };
+
+    console.log(allFile);
+  };
   return (
     <>
       <div className="">
@@ -33,7 +43,7 @@ const AddItems = () => {
                 <div className="col-span-2"></div>
                 <div className="col-span-8">
                   <div className="px-10 py-10 bg-nu20">
-                    <form>
+                    <form onSubmit={handleFormArea}>
                       <div className="">
                         <label htmlFor="name" className="font-semibold">
                           Recipe name*
@@ -80,7 +90,6 @@ const AddItems = () => {
                           rows="6"
                           placeholder="Recipe Details"
                           name="text"
-                         
                         />
                       </div>
                       <div className="mb-4">
