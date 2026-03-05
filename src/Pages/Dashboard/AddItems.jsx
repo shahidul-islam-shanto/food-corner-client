@@ -7,9 +7,11 @@ const AddItems = () => {
   const [text, setText] = useState("");
 
   const options = [
-    { value: "apple", label: "Apple" },
-    { value: "banana", label: "Banana" },
-    { value: "mango", label: "Mango" },
+    { value: "Salad", label: "Salad" },
+    { value: "Pizza", label: "Pizza" },
+    { value: "Soup", label: "Soup" },
+    { value: "Dessert", label: "Dessert" },
+    { value: "Drink", label: "Drink" },
   ];
   return (
     <>
@@ -89,7 +91,9 @@ const AddItems = () => {
                         />
                       </div>
                       <div className="">
-                        <button className="px-4 py-3 bg-nu100 text-nu10 font-semibold rounded-lg">Add Item</button>
+                        <button className="px-4 py-3 bg-nu100 text-nu10 font-semibold rounded-lg">
+                          Add Item
+                        </button>
                       </div>
                     </form>
                   </div>
