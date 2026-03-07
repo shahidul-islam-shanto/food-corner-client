@@ -3,9 +3,6 @@ import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import Select from "react-select";
 
 const AddItems = () => {
-  // const [selectedOption, setSelectedOption] = useState(null);
-  // const [text, setText] = useState("");
-
   const options = [
     { value: "Salad", label: "Salad" },
     { value: "Pizza", label: "Pizza" },
@@ -52,6 +49,7 @@ const AddItems = () => {
                           type="text"
                           name="name"
                           placeholder="Recipe name"
+                          required
                           className="w-full px-3 py-3 mb-4 mt-2 placeholder:text-nu60 rounded-xl bg-nu10"
                         />
                       </div>
@@ -65,6 +63,7 @@ const AddItems = () => {
                               options={options}
                               name="select"
                               placeholder="Category"
+                              required
                               className="w-full px-3 py-2 mb-4 mt-2 placeholder:text-nu60 rounded-xl bg-nu10"
                             />
                           </div>
@@ -77,6 +76,7 @@ const AddItems = () => {
                             type="number"
                             name="price"
                             placeholder="Price"
+                            required
                             className="w-full px-3 py-3 mb-4 mt-2 placeholder:text-nu60 rounded-xl bg-nu10"
                           />
                         </div>
@@ -89,6 +89,7 @@ const AddItems = () => {
                           className="w-full px-3 py-4 mt-2 rounded-lg bg-nu10"
                           rows="6"
                           placeholder="Recipe Details"
+                          required
                           name="text"
                         />
                       </div>
@@ -99,6 +100,7 @@ const AddItems = () => {
                         <input
                           type="file"
                           name="file"
+                          required
                           className="bg-nu10  px-4 py-3"
                         />
                       </div>
