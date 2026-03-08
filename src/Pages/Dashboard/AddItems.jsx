@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import Select from "react-select";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
+const IMAGE_UPLOAD_KEY = import.meta.env.VITE_IMAGE_UPLOAD_KEY;
+const IMAGE_HOSTING_API = `https://api.imgbb.com/1/upload?key=${IMAGE_UPLOAD_KEY}`;
 const AddItems = () => {
+  const axiosPublic = useAxiosPublic();
   const options = [
     { value: "Salad", label: "Salad" },
     { value: "Pizza", label: "Pizza" },
@@ -16,11 +20,11 @@ const AddItems = () => {
     console.log("this is from");
     const from = e.target;
     const name = from.name.value;
-    const select = from.select.value;
+    const category = from.category.value;
     const price = from.price.value;
     const file = from.file.value;
 
-    const allFile = { name, select, price, file };
+    const allFile = { name, category, price, file };
 
     console.log(allFile);
   };
@@ -61,7 +65,7 @@ const AddItems = () => {
                           <div className="w-88 mt-2">
                             <Select
                               options={options}
-                              name="select"
+                              name="category"
                               placeholder="Category"
                               required
                               className="w-full px-3 py-2 mb-4 mt-2 placeholder:text-nu60 rounded-xl bg-nu10"
