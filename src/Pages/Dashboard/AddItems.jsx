@@ -15,18 +15,27 @@ const AddItems = () => {
     { value: "Drink", label: "Drink" },
   ];
 
-  const handleFormArea = (e) => {
+  const handleFormArea = async (e) => {
     e.preventDefault();
     console.log("this is from");
     const from = e.target;
     const name = from.name.value;
     const category = from.category.value;
     const price = from.price.value;
-    const file = from.file.value;
+    const file = from.file.files[0];
 
     const allFile = { name, category, price, file };
 
     console.log(allFile);
+    // const imageFile = { image: data.image[0] };
+    const imageFile = new FormData();
+    imageFile.append("image", file);
+    const res = await axiosPublic.post(IMAGE_HOSTING_API, imageFile, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+    console.log(res.data);
   };
   return (
     <>
