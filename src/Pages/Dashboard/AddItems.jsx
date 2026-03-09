@@ -3,6 +3,7 @@ import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import Select from "react-select";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const IMAGE_UPLOAD_KEY = import.meta.env.VITE_IMAGE_UPLOAD_KEY;
 const IMAGE_HOSTING_API = `https://api.imgbb.com/1/upload?key=${IMAGE_UPLOAD_KEY}`;
@@ -24,6 +25,7 @@ const AddItems = () => {
     const name = from.name.value;
     const category = from.category.value;
     const price = from.price.value;
+    const recipe = from.recipe.value;
     const file = from.file.files[0];
 
     const allFile = { name, category, price, file };
@@ -40,17 +42,24 @@ const AddItems = () => {
     if (res.data.success) {
       // new send the menu item data to the service with the image url
       const menuItem = {
-        name: data.name,
-        category: data.category,
-        price: parseFloat(data.price),
-        recipe: data.recipe,
+        name: name,
+        category: category,
+        price: parseFloat(price),
+        recipe: recipe,
         image: res.data.data.display_url,
       };
 
       const menuRes = await axiosSecure.post("/menu", menuItem);
       console.log(menuRes.data);
-      if (res.data.insertedId) {
+      if (menuRes.data.insertedId) {
         // show success popup
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     }
     console.log("with image url", res.data);
@@ -121,7 +130,7 @@ const AddItems = () => {
                           rows="6"
                           placeholder="Recipe Details"
                           required
-                          name="text"
+                          name="recipe"
                         />
                       </div>
                       <div className="mb-4">
