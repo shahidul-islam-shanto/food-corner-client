@@ -22,6 +22,7 @@ import MyBooking from "../Pages/Dashboard/MyBooking";
 import AllUsers from "../Pages/Dashboard/AllUsers";
 import AddItems from "../Pages/Dashboard/AddItems";
 import AdminRoute from "./AdminRoute";
+import ManageItems from "../Pages/Dashboard/ManageItems";
 
 const router = createBrowserRouter([
   {
@@ -131,6 +132,10 @@ const router = createBrowserRouter([
             <AddItems />
           </AdminRoute>
         ),
+      },
+      {
+        path: "manageItems",
+        element: <ManageItems />,
       },
     ],
   },
