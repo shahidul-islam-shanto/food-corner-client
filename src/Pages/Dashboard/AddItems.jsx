@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import Select from "react-select";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const IMAGE_UPLOAD_KEY = import.meta.env.VITE_IMAGE_UPLOAD_KEY;
 const IMAGE_HOSTING_API = `https://api.imgbb.com/1/upload?key=${IMAGE_UPLOAD_KEY}`;
 const AddItems = () => {
   const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const options = [
     { value: "Salad", label: "Salad" },
     { value: "Pizza", label: "Pizza" },
@@ -25,9 +27,9 @@ const AddItems = () => {
     const file = from.file.files[0];
 
     const allFile = { name, category, price, file };
-
     console.log(allFile);
-    // const imageFile = { image: data.image[0] };
+
+    // imgBB upload this image
     const imageFile = new FormData();
     imageFile.append("image", file);
     const res = await axiosPublic.post(IMAGE_HOSTING_API, imageFile, {
@@ -35,7 +37,23 @@ const AddItems = () => {
         "content-type": "multipart/form-data",
       },
     });
-    console.log(res.data);
+    if (res.data.success) {
+      // new send the menu item data to the service with the image url
+      const menuItem = {
+        name: data.name,
+        category: data.category,
+        price: parseFloat(data.price),
+        recipe: data.recipe,
+        image: res.data.data.display_url,
+      };
+
+      const menuRes = await axiosSecure.post("/menu", menuItem);
+      console.log(menuRes.data);
+      if (res.data.insertedId) {
+        // show success popup
+      }
+    }
+    console.log("with image url", res.data);
   };
   return (
     <>
