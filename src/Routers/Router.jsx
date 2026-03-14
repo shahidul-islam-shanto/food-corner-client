@@ -135,7 +135,11 @@ const router = createBrowserRouter([
       },
       {
         path: "manageItems",
-        element: <ManageItems />,
+        element: (
+          <AdminRoute>
+            <ManageItems />
+          </AdminRoute>
+        ),
       },
     ],
   },

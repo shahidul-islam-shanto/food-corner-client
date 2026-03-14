@@ -21,6 +21,7 @@ const ManageItems = () => {
               {/* head */}
               <thead>
                 <tr>
+                  <th></th>
                   <th className="text-nu60 text-[20px]">Item Image</th>
                   <th className="text-nu60 text-[20px]">Item Name</th>
                   <th className="text-nu60 text-[20px]">Price</th>
@@ -30,8 +31,9 @@ const ManageItems = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                {menuItems.map((items) => (
+                {menuItems.map((items, index) => (
                   <tr>
+                    <td>{index + 1}</td>
                     <td>
                       <img
                         className="w-14 h-14 rounded-full"
