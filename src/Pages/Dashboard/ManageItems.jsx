@@ -2,7 +2,7 @@ import React from "react";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import useMenu from "../../hooks/useMenu";
 import { MdEditSquare } from "react-icons/md";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
@@ -19,18 +19,19 @@ const ManageItems = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    }).then(async (result) => {
+    }).then((result) => {
       if (result.isConfirmed) {
-        const res = await axiosSecure.delete(`/menu/${id}`);
-        console.log(res.data);
-        if (res.data.deletedCount > 0) {
-          refetch();
-          Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success",
-          });
-        }
+        axiosSecure.delete(`/menu/${id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
       }
     });
   };
@@ -81,9 +82,9 @@ const ManageItems = () => {
                     <th>
                       <button
                         onClick={() => handleDelete(items._id)}
-                        className="px-3 py-3 bg-nu109 text-nu10 rounded-lg"
+                        className="px-3 py-3 bg-nu109 rounded-lg"
                       >
-                        <RiDeleteBin6Line className="text-[24px]" />
+                        <MdDelete className="text-nu10 text-[20px]" />
                       </button>
                     </th>
                   </tr>
