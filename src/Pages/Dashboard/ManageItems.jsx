@@ -36,6 +36,10 @@ const ManageItems = () => {
       }
     });
   };
+
+  const handleUpdateItems = (id) => {
+    console.log(id);
+  };
   return (
     <div>
       <div className="">
@@ -76,9 +80,9 @@ const ManageItems = () => {
                     </td>
                     <td>${items.price}</td>
                     <th>
-                      <Link to={"/dashboard/updateItems"}>
+                      <Link to={"/dashboard/updateItems/:id"}>
                         <button
-                          onClick={() => handleUpdateItems()}
+                          onClick={() => handleUpdateItems(items._id)}
                           className="px-3 py-3 bg-nu101 text-nu10 rounded-lg"
                         >
                           <MdEditSquare className="text-[24px]" />
