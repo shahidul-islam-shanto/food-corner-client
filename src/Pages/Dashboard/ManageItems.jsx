@@ -5,6 +5,7 @@ import { MdEditSquare } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const ManageItems = () => {
   const [menu, , refetch] = useMenu();
@@ -75,9 +76,14 @@ const ManageItems = () => {
                     </td>
                     <td>${items.price}</td>
                     <th>
-                      <button className="px-3 py-3 bg-nu101 text-nu10 rounded-lg">
-                        <MdEditSquare className="text-[24px]" />
-                      </button>
+                      <Link to={"/dashboard/updateItems"}>
+                        <button
+                          onClick={() => handleUpdateItems()}
+                          className="px-3 py-3 bg-nu101 text-nu10 rounded-lg"
+                        >
+                          <MdEditSquare className="text-[24px]" />
+                        </button>
+                      </Link>
                     </th>
                     <th>
                       <button
