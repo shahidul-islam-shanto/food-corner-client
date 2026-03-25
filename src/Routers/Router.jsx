@@ -149,7 +149,10 @@ const router = createBrowserRouter([
             <AdminUpdateItems />
           </AdminRoute>
         ),
-        loader: (params) => fetch(`http://localhost:5000/menu/${params.id}`),
+       loader: ({ params }) => {
+         console.log(params); // এটা দেখো কী আসছে
+         return fetch(`http://localhost:5000/menu/${params.id}`);
+}
       },
     ],
   },
