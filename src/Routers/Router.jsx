@@ -13,9 +13,9 @@ import AdminHome from "../Pages/Dashboard/PaymentHistory";
 import Menu from "../Pages/Dashboard/Menu";
 import Shop from "../Pages/Dashboard/Shop";
 import Contact from "../Pages/Dashboard/Contact";
-import UserHome from "../Pages/Dashboard/PaymentHistory";
+import UserHome from "../Pages/Dashboard/UserHome";
 import Reservation from "../Pages/Dashboard/Reservation";
-import PaymentHistory from "../Pages/Dashboard/UserHome";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
 import MyCart from "../Pages/Dashboard/MyCart";
 import AddReview from "../Pages/Dashboard/AddReview";
 import MyBooking from "../Pages/Dashboard/MyBooking";
@@ -149,10 +149,9 @@ const router = createBrowserRouter([
             <AdminUpdateItems />
           </AdminRoute>
         ),
-       loader: ({ params }) => {
-         console.log(params); // এটা দেখো কী আসছে
-         return fetch(`http://localhost:5000/menu/${params.id}`);
-}
+
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/menu/${params.id}`),
       },
     ],
   },

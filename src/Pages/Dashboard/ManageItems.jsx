@@ -81,9 +81,7 @@ const ManageItems = () => {
                     <td>${items.price}</td>
                     <th>
                       <Link to={`/dashboard/updateItems/${items._id}`}>
-                        <button               
-                          className="px-3 py-3 bg-nu101 text-nu10 rounded-lg"
-                        >
+                        <button className="px-3 py-3 bg-nu101 text-nu10 rounded-lg">
                           <MdEditSquare className="text-[24px]" />
                         </button>
                       </Link>

@@ -88,7 +88,7 @@ const Dashboard = () => {
                   <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                     <IoHomeSharp className="text-[24px]" />
                     <NavLink
-                      to={"/dashboard/paymentHistory"}
+                      to={"/dashboard/userHome"}
                       className="text-[20px] font-medium uppercase"
                     >
                       User Home
@@ -106,7 +106,7 @@ const Dashboard = () => {
                   <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                     <FaListUl className="text-[24px]" />
                     <NavLink
-                      to={"/dashboard/userHome"}
+                      to={"/dashboard/paymentHistory"}
                       className="text-[20px] font-medium uppercase"
                     >
                       Payment History
