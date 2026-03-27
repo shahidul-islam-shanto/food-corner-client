@@ -4,6 +4,7 @@ import { MdEditSquare } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const UserHome = () => {
   const [cart, refetch] = useCards();
@@ -43,9 +44,11 @@ const UserHome = () => {
         <div className="flex justify-between items-center px-6 mb-12">
           <h2>Manage Items: {cart.length}</h2>
           <h2>Total Price: ${totalPrice}</h2>
-          <button className="px-6 py-2 bg-nu70 font-semibold rounded-lg text-nu10">
-            Pay
-          </button>
+          <Link to={"/dashboard/payment"}>
+            <button className="px-6 py-2 bg-nu70 font-semibold rounded-lg text-nu10">
+              Pay
+            </button>
+          </Link>
         </div>
         <div className="px-10">
           <div className="overflow-x-auto">
