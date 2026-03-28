@@ -1,11 +1,45 @@
-import React from 'react'
+import { CardElement } from "@stripe/react-stripe-js";
+import { useElements, useStripe } from "@stripe/react-stripe-js";
+import React from "react";
 
 const CheckoutForm = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const stripe = useStripe();
+  const elements = useElements();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-export default CheckoutForm
+    if (!stripe || !elements) {
+      return;
+    }
+    const card = elements.getElement(CardElement);
+
+    if (card === null) {
+      return;
+    }
+  };
+  return (
+    <form onClick={handleSubmit}>
+      <CardElement
+        options={{
+          style: {
+            base: {
+              fontSize: "16px",
+              color: "#424770",
+              "::placeholder": {
+                color: "#aab7c4",
+              },
+            },
+            invalid: {
+              color: "#9e2146",
+            },
+          },
+        }}
+      />
+      <button type="submit" disabled={!stripe}>
+        Pay
+      </button>
+    </form>
+  );
+};
+
+export default CheckoutForm;
