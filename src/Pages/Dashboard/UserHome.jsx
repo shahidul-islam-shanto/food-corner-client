@@ -45,7 +45,10 @@ const UserHome = () => {
           <h2>Manage Items: {cart.length}</h2>
           <h2>Total Price: ${totalPrice}</h2>
           <Link to={"/dashboard/payment"}>
-            <button className="px-6 py-2 bg-nu70 font-semibold rounded-lg text-nu10">
+            <button
+              disabled={!cart.length}
+              className="px-6 py-2 bg-nu70 font-semibold rounded-lg text-nu10"
+            >
               Pay
             </button>
           </Link>
