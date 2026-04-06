@@ -6,6 +6,7 @@ import useCards from "../../Hooks/useCards";
 
 const CheckoutForm = () => {
   const [error, setError] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
@@ -15,7 +16,12 @@ const CheckoutForm = () => {
   }, 0);
 
   useEffect(() => {
-    axiosSecure.post("/create-payment-intent", { price: totalPrice });
+    const res = axiosSecure
+      .post("/create-payment-intent", { price: totalPrice })
+      .then((res) => {
+        console.log(res.data.clientSecret);
+        setClientSecret(res.data.clientSecret);
+      });
   }, [axiosSecure, totalPrice]);
 
   const handleSubmit = async (event) => {
@@ -66,7 +72,7 @@ const CheckoutForm = () => {
           </div>
           <button
             type="submit"
-            disabled={!stripe}
+            disabled={!stripe || !clientSecret}
             className="px-8 py-2 bg-nu70 text-nu10 rounded-xl mt-4 block w-full"
           >
             Pay
