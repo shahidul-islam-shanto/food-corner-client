@@ -15,8 +15,8 @@ const CheckoutForm = () => {
   }, 0);
 
   useEffect(() => {
-    axiosSecure.post("/create-payment-intent");
-  }, []);
+    axiosSecure.post("/create-payment-intent", { price: totalPrice });
+  }, [axiosSecure, totalPrice]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
