@@ -12,7 +12,7 @@ const CheckoutForm = () => {
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
   const [cart] = useCards();
-  const [user] = useAuth();
+  const { user } = useAuth();
 
   const totalPrice = cart.reduce((total, items) => {
     return total + items.price;
@@ -62,6 +62,15 @@ const CheckoutForm = () => {
           },
         },
       });
+
+    if (confirmError) {
+      console.log("confirm error");
+    } else {
+      console.log("payment intent", paymentIntent);
+      if (paymentIntent === "succeeded") {
+        console.log("transaction id:", paymentIntent.id);
+      }
+    }
   };
   return (
     <div className="">
