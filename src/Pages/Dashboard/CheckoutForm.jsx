@@ -68,7 +68,7 @@ const CheckoutForm = () => {
       console.log("confirm error");
     } else {
       console.log("payment intent", paymentIntent);
-      if (paymentIntent === "succeeded") {
+      if (paymentIntent.status === "succeeded") {
         console.log("transaction id:", paymentIntent.id);
         setTransactionId(paymentIntent.id);
 
@@ -77,9 +77,14 @@ const CheckoutForm = () => {
           email: user?.email,
           price: totalPrice,
           date: new Date(), //utc date convert / use moment js
-          cardId: cart.map((item) => item._id),
-          menuId: cart.map((item) => item.menuId),
+          cardIds: cart.map((item) => item._id),
+          menuIds: cart.map((item) => item.menuId),
+          status: "service pending",
+          transactionId: paymentIntent.id,
         };
+
+        const res = await axiosSecure.post("/payments", payment);
+        console.log("save this payment:", res);
       }
     }
   };
