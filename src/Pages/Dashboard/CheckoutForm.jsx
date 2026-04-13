@@ -71,6 +71,15 @@ const CheckoutForm = () => {
       if (paymentIntent === "succeeded") {
         console.log("transaction id:", paymentIntent.id);
         setTransactionId(paymentIntent.id);
+
+        // now save the payment information to the server
+        const payment = {
+          email: user?.email,
+          price: totalPrice,
+          date: new Date(), //utc date convert / use moment js
+          cardId: cart.map((item) => item._id),
+          menuId: cart.map((item) => item.menuId),
+        };
       }
     }
   };
