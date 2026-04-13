@@ -10,9 +10,11 @@ import { IoMenu } from "react-icons/io5";
 import { FaBagShopping } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import useAdmin from "../../Hooks/useAdmin";
+import useCards from "../../Hooks/useCards";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
+  const [cart] = useCards();
 
   return (
     <div className="">
@@ -118,7 +120,7 @@ const Dashboard = () => {
                       to={"/dashboard/myCart"}
                       className="text-[20px] font-medium uppercase"
                     >
-                      My Cart
+                      My Cart ({cart.length})
                     </NavLink>
                   </li>
                   <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
