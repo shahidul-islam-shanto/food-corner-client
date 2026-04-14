@@ -1,7 +1,7 @@
 import React from "react";
 import useAuth from "../../Hooks/useAuth";
 
-const AdminHome = () => {
+const UserHome1 = () => {
   const { user } = useAuth();
   return (
     <div>
@@ -15,4 +15,4 @@ const AdminHome = () => {
   );
 };
 
-export default AdminHome;
+export default UserHome1;

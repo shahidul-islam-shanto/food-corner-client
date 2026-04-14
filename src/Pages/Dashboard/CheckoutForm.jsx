@@ -5,6 +5,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useCards from "../../Hooks/useCards";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
   const [error, setError] = useState("");
@@ -15,6 +16,7 @@ const CheckoutForm = () => {
   const axiosSecure = useAxiosSecure();
   const [cart, refetch] = useCards();
   const { user } = useAuth();
+  const navigate = useNavigate()
 
   const totalPrice = cart.reduce((total, items) => {
     return total + items.price;
@@ -95,6 +97,7 @@ const CheckoutForm = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+          navigate("/dashboard/paymentHistory")
         }
       }
     }

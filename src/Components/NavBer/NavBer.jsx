@@ -7,11 +7,13 @@ import { FaRegUserCircle } from "react-icons/fa";
 import Logo from "../../assets/images/hero-img/logo.png";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useCards from "../../Hooks/useCards";
+import useAdmin from "../../Hooks/useAdmin";
 
 const NavBer = () => {
   const [open, setOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
   const [card] = useCards();
+  const [isAdmin] = useAdmin();
 
   const handleLogOut = () => {
     logOut()
@@ -32,8 +34,18 @@ const NavBer = () => {
         <NavLink to={"/"}>Contact Us</NavLink>
       </li>
       <li className="text-nu20 uppercase">
-        <NavLink to={"/createBoard"}>Dashboard</NavLink>
+        <NavLink to={"/createBoard"}>Create Board</NavLink>
       </li>
+      {user && isAdmin && (
+        <li className="text-nu20 uppercase">
+          <NavLink to={"/dashboard/adminHome"}>Dashboard</NavLink>
+        </li>
+      )}
+       {user && !isAdmin && (
+        <li className="text-nu20 uppercase">
+          <NavLink to={"/dashboard/userHome1"}>Dashboard</NavLink>
+        </li>
+      )}
       <li className="text-nu20 uppercase">
         <NavLink to={"/ourMenu"}>Our Menu</NavLink>
       </li>

@@ -9,10 +9,11 @@ import PrivateRoute from "./PrivateRoute";
 import CreateBoard from "../Pages/CreateBoard/CreateBoard";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashCard from "../Pages/Dashboard/DashCard";
-import AdminHome from "../Pages/Dashboard/PaymentHistory";
+import AdminHome from "../Pages/Dashboard/AdminHome";
 import Menu from "../Pages/Dashboard/Menu";
 import Shop from "../Pages/Dashboard/Shop";
 import Contact from "../Pages/Dashboard/Contact";
+import UserHome1 from "../Pages/Dashboard/UserHome1";
 import UserHome from "../Pages/Dashboard/UserHome";
 import Reservation from "../Pages/Dashboard/Reservation";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "dashCard",
         element: <DashCard />,
+      },
+      {
+        path: "userHome1",
+        element: <UserHome1 />,
       },
       {
         path: "userHome",

@@ -90,10 +90,19 @@ const Dashboard = () => {
                   <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
                     <IoHomeSharp className="text-[24px]" />
                     <NavLink
-                      to={"/dashboard/userHome"}
+                      to={"/dashboard/userHome1"}
                       className="text-[20px] font-medium uppercase"
                     >
                       User Home
+                    </NavLink>
+                  </li>
+                   <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
+                    <IoHomeSharp className="text-[24px]" />
+                    <NavLink
+                      to={"/dashboard/userHome"}
+                      className="text-[20px] font-medium uppercase"
+                    >
+                      User Home 1
                     </NavLink>
                   </li>
                   <li className="mb-6 flex items-center gap-2 hover:text-nu10 duration-300">
