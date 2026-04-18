@@ -16,14 +16,14 @@ const AdminHome = () => {
   });
   return (
     <div>
-      <div className="">
-        <h2 className="block">
+      <div className="container-2">
+        <h2 className="block mb-16">
           Hi Welcome
           {user?.displayName ? user.displayName : " Back?"}
         </h2>
-        <div className="">
-          <div className="stats shadow">
-            <div className="stat">
+        <div className="w-full">
+          <div className="grid grid-cols-12 gap-4">
+            <div className="col-span-3 shadow-md bg-nu102 shadow-nu40 px-4 py-4 rounded-lg">
               <div className="stat-figure text-secondary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -39,12 +39,15 @@ const AdminHome = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="stat-title">Downloads</div>
-              <div className="stat-value">31K</div>
-              <div className="stat-desc">Jan 1st - Feb 1st</div>
+              <h3 className="stat-title text-nu60 py-2 text-[20px]">
+                Revenue
+              </h3>
+              <div className="stat-value text-nu60 py-2 text-[24px]">31K</div>
+              <div className="stat-desc text-nu60 py-2 text-[20px]">
+                Jan 1st - Feb 1st
+              </div>
             </div>
-
-            <div className="stat">
+            <div className="col-span-3 shadow-md bg-nu102 shadow-nu40 px-4 py-4 rounded-lg">
               <div className="stat-figure text-secondary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -60,12 +63,15 @@ const AdminHome = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="stat-title">New Users</div>
-              <div className="stat-value">4,200</div>
-              <div className="stat-desc">↗︎ 400 (22%)</div>
+              <h3 className="stat-title text-nu60 py-2 text-[20px]">
+                Customers
+              </h3>
+              <div className="stat-value text-nu60 py-2 text-[24px]">4,200</div>
+              <div className="stat-desc text-nu60 py-2 text-[20px]">
+                ↗︎ 400 (22%)
+              </div>
             </div>
-
-            <div className="stat">
+            <div className="col-span-3 shadow-md bg-nu102 shadow-nu40 px-4 py-4 rounded-lg">
               <div className="stat-figure text-secondary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -81,9 +87,37 @@ const AdminHome = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="stat-title">New Registers</div>
-              <div className="stat-value">1,200</div>
-              <div className="stat-desc">↘︎ 90 (14%)</div>
+              <h3 className="stat-title text-nu60 py-2 text-[20px]">
+                Products
+              </h3>
+              <div className="stat-value text-nu60 py-2 text-[24px]">1,200</div>
+              <div className="stat-desc text-nu60 py-2 text-[20px]">
+                ↘︎ 90 (14%)
+              </div>
+            </div>
+            <div className="col-span-3 shadow-md bg-nu102 shadow-nu40 px-4 py-4 rounded-lg">
+              <div className="stat-figure text-secondary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block h-8 w-8 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+                  ></path>
+                </svg>
+              </div>
+              <h3 className="stat-title text-nu60 py-2 text-[20px]">
+                Orders
+              </h3>
+              <div className="stat-value text-nu60 py-2 text-[24px]">1,200</div>
+              <div className="stat-desc text-nu60 py-2 text-[20px]">
+                ↘︎ 90 (14%)
+              </div>
             </div>
           </div>
         </div>
