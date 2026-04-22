@@ -39,10 +39,10 @@ const AdminHome = () => {
                   ></path>
                 </svg>
               </div>
-              <h3 className="stat-title text-nu60 py-2 text-[20px]">
-                Revenue
-              </h3>
-              <div className="stat-value text-nu60 py-2 text-[24px]">31K</div>
+              <h3 className="stat-title text-nu60 py-2 text-[20px]">Revenue</h3>
+              <div className="stat-value text-nu60 py-2 text-[24px]">
+                ${stats.revenue}
+              </div>
               <div className="stat-desc text-nu60 py-2 text-[20px]">
                 Jan 1st - Feb 1st
               </div>
@@ -66,7 +66,9 @@ const AdminHome = () => {
               <h3 className="stat-title text-nu60 py-2 text-[20px]">
                 Customers
               </h3>
-              <div className="stat-value text-nu60 py-2 text-[24px]">4,200</div>
+              <div className="stat-value text-nu60 py-2 text-[24px]">
+                {stats.users}
+              </div>
               <div className="stat-desc text-nu60 py-2 text-[20px]">
                 ↗︎ 400 (22%)
               </div>
@@ -90,7 +92,9 @@ const AdminHome = () => {
               <h3 className="stat-title text-nu60 py-2 text-[20px]">
                 Products
               </h3>
-              <div className="stat-value text-nu60 py-2 text-[24px]">1,200</div>
+              <div className="stat-value text-nu60 py-2 text-[24px]">
+                {stats.menuItems}
+              </div>
               <div className="stat-desc text-nu60 py-2 text-[20px]">
                 ↘︎ 90 (14%)
               </div>
@@ -111,10 +115,10 @@ const AdminHome = () => {
                   ></path>
                 </svg>
               </div>
-              <h3 className="stat-title text-nu60 py-2 text-[20px]">
-                Orders
-              </h3>
-              <div className="stat-value text-nu60 py-2 text-[24px]">1,200</div>
+              <h3 className="stat-title text-nu60 py-2 text-[20px]">Orders</h3>
+              <div className="stat-value text-nu60 py-2 text-[24px]">
+                {stats.orders}
+              </div>
               <div className="stat-desc text-nu60 py-2 text-[20px]">
                 ↘︎ 90 (14%)
               </div>
