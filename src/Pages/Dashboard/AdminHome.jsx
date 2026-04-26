@@ -14,6 +14,13 @@ const AdminHome = () => {
       return res.data;
     },
   });
+  const { data: orderData } = useQuery({
+    queryKey: ["order-stats"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/order-stats");
+      return res.data;
+    },
+  });
   return (
     <div>
       <div className="container-2">
@@ -41,7 +48,7 @@ const AdminHome = () => {
               </div>
               <h3 className="stat-title text-nu60 py-2 text-[20px]">Revenue</h3>
               <div className="stat-value text-nu60 py-2 text-[24px]">
-                ${stats.revenue}
+                ${stats?.revenue}
               </div>
               <div className="stat-desc text-nu60 py-2 text-[20px]">
                 Jan 1st - Feb 1st
@@ -67,7 +74,7 @@ const AdminHome = () => {
                 Customers
               </h3>
               <div className="stat-value text-nu60 py-2 text-[24px]">
-                {stats.users}
+                {stats?.users}
               </div>
               <div className="stat-desc text-nu60 py-2 text-[20px]">
                 ↗︎ 400 (22%)
@@ -93,7 +100,7 @@ const AdminHome = () => {
                 Products
               </h3>
               <div className="stat-value text-nu60 py-2 text-[24px]">
-                {stats.menuItems}
+                {stats?.menuItems}
               </div>
               <div className="stat-desc text-nu60 py-2 text-[20px]">
                 ↘︎ 90 (14%)
@@ -117,7 +124,7 @@ const AdminHome = () => {
               </div>
               <h3 className="stat-title text-nu60 py-2 text-[20px]">Orders</h3>
               <div className="stat-value text-nu60 py-2 text-[24px]">
-                {stats.orders}
+                {stats?.orders}
               </div>
               <div className="stat-desc text-nu60 py-2 text-[20px]">
                 ↘︎ 90 (14%)
