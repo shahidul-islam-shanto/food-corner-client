@@ -12,6 +12,10 @@ import {
   LabelList,
   Label,
   ResponsiveContainer,
+  Pie,
+  PieChart,
+  Sector,
+  Cell,
 } from "recharts";
 
 const colors = [
@@ -23,16 +27,8 @@ const colors = [
   "pink",
   "black",
 ];
-
-const data = [
-  { name: "Page A", uv: 4000 },
-  { name: "Page B", uv: 3000 },
-  { name: "Page C", uv: 2000 },
-  { name: "Page D", uv: 2780 },
-  { name: "Page E", uv: 1890 },
-  { name: "Page F", uv: 2390 },
-  { name: "Page G", uv: 3490 },
-];
+const RADIAN = Math.PI / 180;
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const AdminHome = () => {
   const { user } = useAuth();
@@ -58,6 +54,11 @@ const AdminHome = () => {
     category: item.category,
     quantity: item.quantity,
   }));
+
+  const paiData = orderData.map((item) => ({
+    name: item.category,
+    value: item.revenue,
+  }));
   /** make this custom ber charts start */
   const getPath = (x, y, width, height) => {
     return `M${x},${y + height} C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3} ${x + width / 2},${y} C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width},${y + height} Z`;
@@ -81,7 +82,42 @@ const AdminHome = () => {
     const fill = colors[(props.index ?? 0) % colors.length];
     return <Label {...props} fill={fill} />;
   };
-  /** make this custom ber charts start */
+  /** make this custom ber charts end */
+  /** Pie Chart start */
+  const renderCustomizedLabel = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    percent,
+  }) => {
+    if (cx == null || cy == null || innerRadius == null || outerRadius == null)
+      return null;
+
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const ncx = Number(cx);
+    const ncy = Number(cy);
+    const x = ncx + radius * Math.cos(-(midAngle ?? 0) * RADIAN);
+    const y = ncy + radius * Math.sin(-(midAngle ?? 0) * RADIAN);
+
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="white"
+        textAnchor={x > ncx ? "start" : "end"}
+        dominantBaseline="central"
+      >
+        {`${((percent ?? 1) * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
+
+  const MyCustomPie = (props) => {
+    return <Sector {...props} fill={COLORS[props.index % COLORS.length]} />;
+  };
+  /** Pie Chart end */
 
   return (
     <div>
@@ -196,7 +232,7 @@ const AdminHome = () => {
         </div>
       </div>
       <div className="container-2">
-        <div className="grid grid-cols-12 gap-4">
+        <div className="grid grid-cols-12 gap-8">
           <div className="col-span-6">
             <ResponsiveContainer width="100%" aspect={1.618}>
               <BarChart
@@ -214,7 +250,27 @@ const AdminHome = () => {
             </ResponsiveContainer>
             ss
           </div>
-          <div className="col-span-6"></div>
+          <div className="col-span-6">
+            <ResponsiveContainer width="80%" aspect={1}>
+              <PieChart>
+                <Pie
+                  data={paiData}
+                  labelLine={false}
+                  label={renderCustomizedLabel}
+                  fill="#8884d8"
+                  dataKey="value"
+                  shape={<MyCustomPie />}
+                >
+                  {paiData.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
     </div>
