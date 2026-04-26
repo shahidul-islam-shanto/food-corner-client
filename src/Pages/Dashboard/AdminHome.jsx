@@ -45,14 +45,19 @@ const AdminHome = () => {
       return res.data;
     },
   });
-  const { data: orderData } = useQuery({
+  const { data: orderData = [] } = useQuery({
     queryKey: ["order-stats"],
     queryFn: async () => {
       const res = await axiosSecure.get("/order-stats");
+      console.log("API data:", res.data);
       return res.data;
     },
   });
 
+  const chartData = orderData.map((item) => ({
+    category: item.category,
+    quantity: item.quantity,
+  }));
   /** make this custom ber charts start */
   const getPath = (x, y, width, height) => {
     return `M${x},${y + height} C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3} ${x + width / 2},${y} C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width},${y + height} Z`;
@@ -195,14 +200,14 @@ const AdminHome = () => {
           <div className="col-span-6">
             <ResponsiveContainer width="100%" aspect={1.618}>
               <BarChart
-                data={data}
+                data={chartData}
                 margin={{ top: 20, right: 0, left: 0, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <Tooltip cursor={{ fillOpacity: 0.5 }} />
-                <XAxis dataKey="name" />
+                <XAxis dataKey="category" />
                 <YAxis />
-                <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />}>
+                <Bar dataKey="quantity" fill="#8884d8" shape={<TriangleBar />}>
                   <LabelList content={CustomColorLabel} position="top" />
                 </Bar>
               </BarChart>
