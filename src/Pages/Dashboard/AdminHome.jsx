@@ -16,6 +16,7 @@ import {
   PieChart,
   Sector,
   Cell,
+  Legend,
 } from "recharts";
 
 const colors = [
@@ -268,6 +269,7 @@ const AdminHome = () => {
                     />
                   ))}
                 </Pie>
+                <Legend></Legend>
               </PieChart>
             </ResponsiveContainer>
           </div>
